@@ -49,8 +49,6 @@ soon
 *Jump to: [Front End Stories](#front-end-stories), [Back End Stories](#back-end-stories), [Other Skills](#other-skills-learned), [Page Top](#live-project)*
 
 
-## Front End Stories
-* [Login Page](#Login Page)
 
 ### Extra fixes
 This story was to fix an issue where...
