@@ -50,10 +50,10 @@ soon
 
 
 ## Front End Stories
-* [Button Sizing Bug](#button-sizing-bug)
+* [Login Page](#Login Page)
 
-### Button Sizing Bug
-This story was to fix an issue where buttons on the navbar would get smaller when clicked. It took some time to realize the font size was actually staying the same, and it was the font that was changing. From there, I just changed the a:active selector for those elements on the style sheet to use the same font. 
+### Extra fixes
+This story was to fix an issue where...
 
 
 
