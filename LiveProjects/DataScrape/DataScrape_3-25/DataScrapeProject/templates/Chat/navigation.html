@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% include "nav.html" %}
+
+  <h2>Here are the available chat options!</h2>
+  <div class="center">
+    <a class="btn message-buttons" href="{% url 'message' %}">Send a Message</a>
+    <a class="btn message-buttons" href="{% url 'inbox' %}">Inbox</a>
+{% endblock %}
+

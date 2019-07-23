@@ -1,0 +1,23 @@
+﻿<!-- Currently this is a template that will open and close. It requires SignalR to function, which will be added later -->
+
+<!-- Chat Modal -->
+<div id="chat-modal" class="modal modal-right" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div id="chat-header" class="modal-header">
+                <h4 class="modal-title">Welcome to Chat!</h4>
+                <button id="close-icon" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form class="modal-body">
+                <ul id="discussion"> <!-- Remove the test list items below when functionality is added -->
+                    <li><strong>Bob Smith</strong>: Hello everyone, quick reminder about the upcoming meeting tomorrow.</li>
+                    <li><strong>Jane Doe</strong>: It starts at 9:00am.</li>
+                </ul>
+                <textarea id="message-box" placeholder="Type a message here..." required></textarea>
+                <button id="send-message" type="button" class="btn">Send</button>
+            </form>
+        </div>
+    </div>
+</div>

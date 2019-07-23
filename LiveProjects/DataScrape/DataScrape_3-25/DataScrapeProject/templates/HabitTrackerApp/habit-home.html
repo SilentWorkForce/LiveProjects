@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+
+{% block title %}Habit Tracker{% endblock %}
+
+{% block content %}
+{% include "nav.html" %}
+<div class="center">
+    <h1>Welcome to the habit tracker, {{ request.user }}!</h1>
+    <h4>Based on your habits today, please enter the following information.</h4>
+    <br />
+    <div>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn default-button" type="submit" value="Submit">Submit</button>
+            <a class="btn default-button" href="">Reset Form</a>
+        </form>
+        <br />
+        <h4>To view your habit history, <a href="{% url 'habit-history' %}">click here.</a></h4>
+    </div>
+</div>
+{% endblock %}

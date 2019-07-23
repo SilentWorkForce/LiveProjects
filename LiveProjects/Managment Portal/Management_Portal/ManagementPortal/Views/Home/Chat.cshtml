@@ -1,0 +1,66 @@
+﻿                                                                                                @*This view containes the chat functionality using SignalR and works concurrently with
+                                                                                                    the ChatHub class in the Hubs fodler. To call a function on ChatHub, first open a
+                                                                                                    connection, then designate server, then the function call.*@
+@using System.Collections.Generic
+@using ManagementPortal.Models
+@model List<ChatMessage>
+
+@{
+    ViewBag.Title = "Chat";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Chat</h2>
+
+<p style="background-color: white">Test me out: Open several tabs of this page and send a message. They should pop up simultaneoulsy. If you refresh the page, it should repopulate from the ChatMessage db Table.</p>
+
+<div class="container" style="background-color: lightgray; padding-bottom: 5px">
+    <h2 class="text-center">Chat Section</h2>
+    <div class="container">
+        <input id="username" placeholder="Username" />
+        <input id="message" placeholder="Message" />
+        <button id="sendButton">Send</button>
+    </div>
+    <div class="container">
+        <div id="messageBox">
+                                                                                                 @*Loop that prints every stored message*@
+            @foreach (ChatMessage message in Model)
+            {
+                <div class="row">
+                    <div class="col-sm-2">
+                        @message.Sender
+                    </div>                                                                          
+                    <div class="col-sm-7">                                                         @*bug: message column does not overflow on long messages*@
+                        @message.Message
+                    </div>
+                    <div class="col-sm-3">
+                        @message.Date.DayOfWeek @message.Date.ToShortTimeString() @message.Date.ToShortDateString()
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+@Scripts.Render("~/bundles/chat")                                                               @*This bundle and script are required to make signalr run*@
+<script src="~/signalr/hubs"></script>
+
+<script>
+
+    var chat = $.connection.chatHub;                                                            //This creates the chat object. ChatHub Functions are called on this object
+
+    chat.client.addNewMessageToPage = function (username, message, timeString) {                //Function called by server and returned to user, then generated on page.
+        $('#messageBox').prepend("<div class='row'><div class='col-sm-2'>" + username            //This function populates a new message (as opposed to ones previously stored
+            + "</div><div class='col-sm-7'>" + message + "</div><div class='col-sm-3'>"         //and queried from the ChatMessage db Table). The format matches the foreach format.
+            + timeString + "</div></div>");                                                     //Finally, the time string is generated server side to keep in order to take 
+    }                                                                                           //advantage of C#'s datetime function formats
+    
+
+    $.connection.hub.start().done(function () {                                                 //Function called by user and sends message to server.
+        $('#sendButton').click(function () {
+            chat.server.sendMessage($('#username').val(), $('#message').val());
+        });
+    });
+
+</script>

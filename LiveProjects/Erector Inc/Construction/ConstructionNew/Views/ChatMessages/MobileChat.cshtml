@@ -1,0 +1,26 @@
+﻿@using ConstructionNew.Models
+@model IEnumerable<ConstructionNew.Models.ChatMessage>
+@{
+    ViewBag.Title = "Mobile Chat";
+}
+
+<h4>
+    MobileChat<br />
+</h4>
+<h5>
+    @if (User.IsInRole("Admin"))
+    {
+        @Html.ActionLink("Manage Messages", "Index", "ChatMessages", null, new { @class = "mobileManage" })
+    }
+</h5>
+
+<h4 class="chatName">@User.Identity.Name</h4>
+
+<form>
+    <div class="mobileChat">
+        <ul id="discussion"></ul>
+        <textarea class="mobileMessage" placeholder="Type message..." name="msg" id="messageBox" required></textarea>
+        <input type="hidden" id="displayname" value="@User.Identity.Name" /><hr />
+        <button type="submit" class="btn" id="sendmessage">Send</button>
+    </div>
+</form>

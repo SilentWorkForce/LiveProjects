@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Management Portal</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="https://fonts.googleapis.com/css?family=Vollkorn+SC&display=swap" rel="stylesheet"> <!-- Link for the brand/company title font-->
+</head>
+<body>
+    <header class="card">
+        <img id="site-header">
+        <div class="card-img-overlay">
+            <a id="header-title" href="@Url.Action("Index", "Home")"><img src="~/Content/images/LOGO_color-Black.png" alt="" /></a>
+        </div>
+    </header>
+    <div id="navigation" class="sidenav nav flex-column">
+        <button class="navbar-toggler text-left second-button" type="button" data-toggle="collapse" data-target="#menu"
+                aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
+            <div class="animated-icon"><span></span><span></span><span></span><span></span></div>
+        </button>
+            <div class="collapse navbar-collapse" id="menu">
+
+                <ul class="navbar-nav mr-auto">
+                    <li><a class="nav-title" href="@Url.Action("Index", "Home")"><i class="fa fa-home icon-padding"></i>Home</a></li>
+
+                    <!--Users-->
+                    <li class="has-sub">
+                        <a class="nav-title" href="#"><i class="fa fa-users icon-padding" onclick="openNav()"></i>Users</a>
+                        @Html.Partial("_LoginPartial")
+                    </li>
+
+                    <!--Users (ADMIN ONLY)-->
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li class="has-sub">
+                            <a class="nav-title" href="#"><i class="fa fa-users icon-padding" onclick="openNav()"></i>Add Users</a>
+                            <ul>
+                                <li>@Html.ActionLink("Create New User", "Create", new { controller = "CreateUserRequest" }, new { @class = "dropdown-item" })</li>
+                            </ul>
+                        </li>
+                    }
+                    <!--Jobs-->
+                    <li class="has-sub">
+                        <a class="nav-title" href="#"><i class="fa fa-clipboard icon-padding" onclick="openNav()"></i>Jobs</a>
+                        <ul>
+                            <li>@Html.ActionLink("View All", "Index", new { controller = "Jobs" }, new { @class = "dropdown-item" })</li>
+                            <li>@Html.ActionLink("Create New", "Create", new { controller = "Jobs" }, new { @class = "dropdown-item" })</li>
+
+                        </ul>
+                    </li>
+
+                    <!--Admin-->
+                    <li class="has-sub">
+                        <a class="nav-title" href="#"><i class="fa fa-clipboard icon-padding" onclick="openNav()"></i>Admin</a>
+                        <ul>
+                            <li>@Html.ActionLink("Some Link", "Index", new { controller = "Home" }, new { @class = "dropdown-item" })</li>
+                            <li>@Html.ActionLink("Another Link", "Index", new { controller = "Home" }, new { @class = "dropdown-item" })</li>
+
+                        </ul>
+                    </li>
+
+                    <!--Shift Times, Commented out for story 4808, Need to relocate to manager dashboard when created.-->                          
+                    @*<li class="has-sub">
+                        <a class="nav-title" href="#"><i class="fa fa-clock-o icon-padding" onclick="openNav()"></i>Shift Times</a>
+                        <ul>
+                            <li>@Html.ActionLink("View All", "Index", new { controller = "ShiftTimes" }, new { @class = "dropdown-item" })</li>
+                            <li>@Html.ActionLink("Create New", "Create", new { controller = "ShiftTimes" }, new { @class = "dropdown-item" })</li>
+
+                        </ul>
+                    </li>*@
+
+                    <!--Schedules-->
+                    <li class="has-sub">
+                        <a class="nav-link" href="#"><i class="fa fa-calendar icon-padding" onclick="openNav()"></i>Schedules</a>
+                        <ul>
+                            <li>@Html.ActionLink("View All", "Index", new { controller = "Schedules" }, new { @class = "dropdown-item" })</li>
+                            <li>@Html.ActionLink("Create New", "Create", new { controller = "Schedules" }, new { @class = "dropdown-item" })</li>
+                        </ul>
+                    </li>
+
+                    <!--News-->
+                    <li id="news" class="nav-item dropdown">
+                        <a class="nav-link" href="#"><i class="fa fa-newspaper-o icon-padding" onclick="openNav()"></i>News</a>
+                        <ul>
+                            <li>@Html.ActionLink("View All", "Index", new { controller = "CompanyNews" }, new { @class = "dropdown-item" })</li>
+                            <li>@Html.ActionLink("Create New", "Create", new { controller = "CompanyNews" }, new { @class = "dropdown-item" })</li>
+                        </ul>
+                    </li>
+
+                    <!--Chat-->
+                    <li class="has-sub">
+                        <a class="nav-title" href="#"><i class="fa fa-comments icon-padding" onclick="openNav()"></i>Chat</a>
+                        <ul>
+                            <li>@Html.ActionLink("View All", "Index", new { controller = "ChatMessages" }, new { @class = "dropdown-item" })</li>
+                            <li>@Html.ActionLink("Send New Message", "Create", new { controller = "ChatMessages" }, new { @class = "dropdown-item" })</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+    </div>
+    <div id="main" class="container body-content">
+        @RenderBody()
+
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Management Portal</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

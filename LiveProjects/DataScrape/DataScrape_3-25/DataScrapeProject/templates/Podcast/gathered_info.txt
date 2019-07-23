@@ -1,0 +1,53 @@
+{
+    'podcasts': [{
+        'images': 'https://secureimg.stitcher.com/feedimagesplain50/13180.jpg',
+        'title': 'The Joe Rogan Experience',
+        'categories': 'Comedy',
+        'details': 'podcast/the-joe-rogan-experience'
+    }, {
+        'images': 'https://secureimg.stitcher.com/feedimagesplain50/95773.jpg',
+        'title': 'My Favorite Murder with Karen Kilgari...',
+        'categories': 'Comedy',
+        'details': 'podcast/exactly-right/my-favorite-murder'
+    }, {
+        'images': 'https://secureimg.stitcher.com/feedimagesplain50/77951.jpg',
+        'title': 'True Crime Garage',
+        'categories': 'Society & Culture',
+        'details': 'podcast/true-crime-garage'
+    }, {
+        'images': 'https://secureimg.stitcher.com/feedimagesplain50/4903.jpg',
+        'title': 'This American Life',
+        'categories': 'Society & Culture',
+        'details': 'podcast/this-american-life'
+    }, {
+        'images': 'https://secureimg.stitcher.com/feedimagesplain50/375557.jpg',
+        'title': 'To Live and Die in LA',
+        'categories': 'Society & Culture',
+        'details': 'podcast/cadence13/to-live-and-die-in-la'
+    }, {
+        'images': 'https://secureimg.stitcher.com/feedimagesplain50/6602.jpg',
+        'title': 'The Rachel Maddow Show',
+        'categories': 'News & Politics',
+        'details': 'podcast/msnbc-rachel-maddow-audio'
+    }, {
+        'images': 'https://secureimg.stitcher.com/feedimagesplain50/129650.jpg',
+        'title': 'The Daily',
+        'categories': 'News & Politics',
+        'details': 'podcast/the-new-york-times/the-daily-10'
+    }, {
+        'images': 'https://secureimg.stitcher.com/feedimagesplain50/144618.jpg',
+        'title': 'Spittin Chiclets',
+        'categories': 'Sports',
+        'details': 'podcast/barstool-sports/spittin-chiclets'
+    }, {
+        'images': 'https://secureimg.stitcher.com/feedimagesplain50/160493.jpg',
+        'title': 'Crime Junkie',
+        'categories': 'Society & Culture',
+        'details': 'podcast/ashley-flowers/crime-junkie'
+    }, {
+        'images': 'https://secureimg.stitcher.com/feedimagesplain50/39219.jpg',
+        'title': 'Last Podcast On The Left',
+        'categories': 'Pop Culture, TV & Film',
+        'details': 'podcast/the-last-podcast-network/the-last-podcast-on-the-left'
+    }]
+}

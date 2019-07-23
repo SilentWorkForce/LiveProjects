@@ -1,0 +1,27 @@
+{% extends 'base.html' %} <!-- here we are saying that we will be rendering our content inside of the base.html template -->
+
+{% block title %}| Live Shows{% endblock %} <!-- This will appear in the browser tab -->
+
+{% block content %} 
+{% include "nav.html" %}<!-- block content defines where the content will be rendered on the page according to where we placed the same tags in the body of base.html-->
+
+    <h1>Today's Live Shows!</h1><br>
+    
+    <div class="bands-scroll">
+        {% for item in showsList.all_list %}
+        <form method="Post">
+            
+            {% csrf_token %}     
+            <h3> Headliner: {{ item.0 }} </h3> 
+            <br>
+            <h4> Venue: {{ item.1 }} </h4>
+            <h4> Details: {{ item.2 }} </h4>
+            <br>
+            <img src="{{ item.3 }}"> </img>           
+            <br>
+            
+        </form>    
+        {% endfor %}
+    </div>
+    
+{% endblock %}

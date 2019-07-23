@@ -1,0 +1,127 @@
+{% extends 'BudgetApp/budget-input.html' %}
+{% block budget_content %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<div class="container">
+  <h1>{{ user.username }}'s Budget</h1>
+  <canvas id="budget-chart"></canvas>
+  <script type="text/javascript">
+    const actualsT = {{ budget_output.accepted.actuals|safe }};
+    const budgetT = {{ budget_output.accepted.budget|safe }};
+    console.log(actualsT);
+    // aggregate transactions into daily totals
+    const actualsD = actualsT.filter(function(transaction, indexCurrent) {
+      const dateCurrent = new Date(transaction.t).toDateString();
+      let dateNext = function(start) {
+        if (start + 1 < actualsT.length) {
+          return new Date(actualsT[start + 1].t).toDateString();
+        } else {
+          return null;
+        }
+      };
+      if (dateCurrent === dateNext(indexCurrent)) {
+        let deleteCount = 0;
+        for (
+          let indexNext = indexCurrent + 1;
+          indexNext < actualsT.length;
+          indexNext++
+        ) {
+          if (dateCurrent === dateNext(indexNext - 1)) {
+            transaction.y = (
+              parseFloat(actualsT[indexNext].y) + parseFloat(transaction.y)
+            ).toString();
+            deleteCount++;
+          }
+        }
+        actualsT.splice(indexCurrent + 1, deleteCount);
+      }
+      return transaction;
+    });
+    const budgetD = budgetT.filter(function(transaction, indexCurrent) {
+      const dateCurrent = new Date(transaction.t).toDateString();
+      let dateNext = function(start) {
+        if (start + 1 < budgetT.length) {
+          return new Date(budgetT[start + 1].t).toDateString();
+        } else {
+          return null;
+        }
+      };
+      if (dateCurrent === dateNext(indexCurrent)) {
+        let deleteCount = 0;
+        for (
+          let indexNext = indexCurrent + 1;
+          indexNext < budgetT.length;
+          indexNext++
+        ) {
+          if (dateCurrent === dateNext(indexNext - 1)) {
+            deleteCount++;
+          }
+        }
+        budgetT.splice(indexCurrent + 1, deleteCount);
+      }
+      return transaction;
+    });
+    // chart config
+    const canvas = document.getElementById("budget-chart").getContext("2d");
+    let chart = new Chart(canvas, {
+      data: {
+        datasets: [
+          {
+            type: "line",
+            label: "Spending",
+            borderColor: "#389EAA",
+            data: actualsD
+          },
+          {
+            type: "line",
+            label: "Budget",
+            borderColor: "#28AC60",
+            data: budgetT
+          }
+        ]
+      },
+      options: {
+        scales: {
+          xAxes: [
+            {
+              type: "time",
+              distribution: "linear",
+              ticks: {
+                source: "data",
+                autoSkip: true
+              }
+            }
+          ],
+          yAxes: [
+            {
+              scaleLabel: {
+                display: true,
+                labelString: "Amount ($)"
+              }
+            }
+          ]
+        }
+      },
+      tooltips: {
+        intersect: false,
+        mode: 'index'
+      }
+    });
+  </script>
+  <!-- TODO: allow user to correct rejected inputs -->
+  {% if budget_output.rejected %}
+    <h4 class="mt-5 mb-3">Some of your data could not be processed:</h4>
+    <table border="1" class="budget-input-errors">
+      {% for reject in budget_output.rejected %}
+          <th>Rejected Data</th>
+          <th>Reason</th>
+        </tr>
+        <tr>
+          <td>{{ reject.data }}</td>
+          <td>{{ reject.message }}</td>
+        </tr>
+      {% endfor %}
+    </table>
+  {% endif %}
+</div>
+{% endblock %}

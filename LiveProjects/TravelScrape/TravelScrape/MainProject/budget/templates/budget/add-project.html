@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+{% include "nav.html" %}
+<!--Front End Content control of User-Form page for creating a budget project-->
+<!--For the developer if you would like to test in it's current form make sure to go to browser and enter address:http://127.0.0.1:8000/budget/add -->
+<!--You may have to modify the above address if your server says otherwise-->
+<div class="container-fluid projectAddContainer">
+    <form class="projectAddForm" action="" method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <label for="categoryInput">Expense Categories (Press ENTER after every category)</label>
+        <input type="text" name="categoryInput" id="categoryInput">
+        <input type="hidden" name="categoriesString">
+
+        <ul class="projectAdd_ul" id="categoriesContainer">
+           
+           
+        </ul>
+
+        <button type="submit" class="btn projectAddBtn">Plan Your Trip</button>
+
+
+    </form>
+</div>
+
+<script src="{% static 'js/scripts.js' %}"></script>
+
+
+{% endblock content %}

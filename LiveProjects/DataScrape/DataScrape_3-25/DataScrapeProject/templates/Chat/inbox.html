@@ -1,0 +1,164 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% include "nav.html" %}
+
+<div>
+    <div class="row">
+        <div class="column message-conversations chatscrollbar">
+            <h3 style="color:white;">&nbsp;<button class="inbox-link" href="#">×</h3></button>
+            <div class="conversation-entity">
+                <div class="entity-users">
+                    <div>
+                        <img src="{{ user.userprofile.image.url }}" width="25" height="25" alt="">
+                    </div>
+                    <h4 style="color: white;">&nbsp;Users: Test Conversation</h4>
+
+                </div>
+                <div class="conversation-entity-trashcan">
+                    <h4><a href="">🗑</a></h4>
+                </div>
+            </div>
+            <div class="conversation-entity">
+                <div class="entity-users">
+                    <div><img src="{{ user.userprofile.image.url }}" width="25" height="25" alt="">
+                        <h4 style="color: white;">&nbsp;Users: Test Conversation
+                    </div>
+                    </h4>
+                </div>
+                <div class="conversation-entity-trashcan">
+                    <h4><a href="">🗑</a></h4>
+                </div>
+            </div>
+            <div class="conversation-entity">
+                <div class="entity-users">
+                    <div>
+                        <img src="{{ user.userprofile.image.url }}" width="25" height="25" alt="">
+                    </div>
+                    <h4 style="color: white;">&nbsp;Users: Test Conversation</h4>
+
+                </div>
+                <div class="conversation-entity-trashcan">
+                    <h4><a href="">🗑</a></h4>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="column chat-container" style="width: 70%">
+            <div class="row">
+                <div id="message-active" class="post message-active chatscrollbar">
+                    <br>
+                    &nbsp;<img class="entity-users" src="{{ user.userprofile.image.url }}" width="30" height="30"
+                        alt="">
+                    <hr>
+                    {% for message in messages%}
+
+                    <div class="post message-entity">
+                        <!-- display sender ID & message -->
+                        <p>{{ message.sender }} </p>
+                        <h4 style="color:white;">{{ message.messageBody|linebreaksbr }}</h4>
+                        <!-- add timestamp to each sent message -->
+                        <div class="date">
+                            <small style="color:grey;">{{ message.sent }}</small>
+                        </div>
+                    </div>
+                    <!-- duplicate message to show self message-->
+                    <div class="post message-entity-self">
+                        <!-- display sender ID & message -->
+                        <p> Me </p>
+                        <h4 style="color: white;">{{ message.messageBody|linebreaksbr }}</h4>
+                        <!-- add timestamp to each sent message -->
+                        <div class="date">
+                            <small>{{ message.sent }}</small>
+                        </div>
+                    </div>
+
+                    {% endfor %}
+                    <br><br><br>
+                </div>
+            </div>
+
+            <!-- footer to send messages with -->
+            <div class="row">
+                <div class="col message-sendbox">
+                    <div class="row">
+                        <h3 style="color:white;">&nbsp;<button class="inbox-link" href="#">✉</h3></button>
+                        <div class="col">
+                            <form method="post">
+                                {% csrf_token %}
+                                <input type="text" autocomplete="off" name="messageBody" class="message-textbox"
+                                    value="">&nbsp;
+                                <button class="btn default-button message-buttons chat-button"
+                                    type="submit">💬</button></form>&nbsp;
+
+                                <button class="btn default-button message-buttons editor-link" id="modal-button">✍</button>
+                            
+                            <br>
+
+                            <!-- The Modal -->
+                            <div id="modal-body" class="modal">
+                                <div class="modal-content" style="background-color:#1b1b21DD">
+                                    <div class="column">
+                                        <span class="close-button">&nbsp;&nbsp;&times;</span>
+                                        <form method="post">
+                                            {% csrf_token %}
+                                            <br><br>
+                                            <h4 style="color:white;">✉ Message Editor</h4>
+                                            <textarea rows="20" cols="80" autocomplete="off" id="modal-text" name="messageBody"
+                                                style="text-align: left;width: auto"></textarea><br>
+                                            <button class="btn default-button message-buttons" type="submit">💬</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script>
+
+    var modal = document.getElementById("modal-body");
+    var btn = document.getElementById("modal-button");
+    var span = document.getElementsByClassName("close-button")[0];
+
+
+    $(document).ready(function () {
+        $('#message-active').scrollTop($('#message-active')[0].scrollHeight);
+        $(".inbox-link").click(function () {
+            $(".message-conversations").toggle();
+        });
+    });
+
+    $(window).resize(function () {
+        document.getElementById("modal-text").style.height = modal.style.height + 'px';
+        if ($(window).width() < 1023) {
+            $(".message-conversations").hide();
+            modal.style.display = "none";
+        }
+        else {
+            $(".message-conversations").show();
+        }
+    });
+
+    btn.onclick = function () {
+        modal.style.display = "block";
+    }
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
+
+</script>
+
+{% endblock %}

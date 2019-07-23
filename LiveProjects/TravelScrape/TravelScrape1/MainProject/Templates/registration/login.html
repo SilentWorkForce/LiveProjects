@@ -1,0 +1,56 @@
+
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<!--Not sure why this was placed here originally, I commented it as it would be a direct by-pass around the login feature-->
+
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button> -->
+    <!--Creates a link to the login page -->
+
+  <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item pr-3">
+          <a class="btn default-button" href=''>Dashboard</a>
+        </li>
+        <li class="nav-item pr-3">
+          <a class="btn default-button" href="#">Apps</a>
+        </li>        
+        <li class="nav-item pr-3">
+          <a class="btn default-button" href='#'>Account</a>
+        </li>
+      </ul>
+  </div> -->
+<!-- </nav> -->
+
+<!--Creates references so if user is autheticated they will be redirected to home page-->
+
+<div class="container">
+    <h5>Sign into your account: </h5>
+        <div class="panel-body">
+        <form method="post" id="logonform">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn">Login</button>
+        </form>
+
+<!--Tells user if they are not logged in and shows their name
+to make it more personalized if they are authenticated-->
+{% if user.is_authenticated %}
+    {{ user.username }}.
+  <a href="{% url 'logout' %}">logout</a>
+    {% else %}
+    <small><p class="unauthenticated">You are not logged in.</p></small>
+{% endif %}
+</div>
+</div>
+
+
+
+
+{% endblock content %}
+

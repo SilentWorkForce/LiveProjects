@@ -1,0 +1,231 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+
+{% block title %}Habit History{% endblock %}
+
+{% block content %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+{% include "nav.html" %}
+<div class="center">
+    <h1>Hi {{ request.user }}! Your habit history is listed below.</h1>
+        <h4>If you would like to create an entry, <a href="{% url 'habit-home' %}">click here.</a></h4> <!-- Link to the habit form -->
+        <br />
+        <!-- create graph canvas -->
+        <canvas id="habit-chart"></canvas>
+        <script type="text/javascript">
+        /* instantiate variables for graph, 'safe' designation prevents things like ' and " from being converting to ASCII codes */
+        const entryDates = {{ entryDates|safe}};
+        const entryExercise = {{ entryExercise|safe }};
+        const entrySleep = {{ entrySleep|safe }};
+        const entryMood = {{ entryMood|safe }};
+        const entryEnergy = {{ entryEnergy|safe }};
+        const entryMeditate = {{ entryMeditate|safe }};
+        /* build graph */
+        const habitCanvas = document.getElementById("habit-chart").getContext('2d');
+        let habitChart = new Chart(habitCanvas, {
+            type: "line",
+            title: {
+                text: "Habit History",
+            },
+            data: {
+                /* x axis dataset */
+                labels: entryDates,
+                /* y axes datasets */
+                datasets: [
+                    {
+                        label: "Exercise (minutes)",
+                        data: entryExercise,
+                        /* for each dataset: set axis, apply coloration and enlarge data points */
+                        yAxisID: 'A',
+                        borderColor: "#389EAA",
+                        pointBackgroundColor: "#389EAA",
+                        pointRadius:5,
+                    },
+                    {
+                        label: "Sleep (hours)",
+                        data: entrySleep,
+                        yAxisID: 'B',
+                        borderColor: "#28AC60",
+                        pointBackgroundColor: "#28AC60",
+                        pointRadius:5,                
+                    },
+                    {
+                        label: "Mood (Scale: 1-10)",
+                        data: entryMood,
+                        yAxisID: 'C',
+                        borderColor: "#0000FF" ,
+                        pointBackgroundColor: "#0000FF",
+                        pointRadius:5,                
+                    },
+                    {
+                        label: "Energy (Scale: 1-10)",
+                        data: entryEnergy,
+                        yAxisID: 'C',
+                        borderColor: "#ED0414",
+                        pointBackgroundColor: "#ED0414",
+                        pointRadius:5,                 
+                    },
+                    {
+                        label: "Meditate",
+                        data: entryMeditate,
+                        yAxisID: 'D',
+                        showLine: false, /* for this dataset only show points (no line) */
+                        pointBackgroundColor: "#FFFF00",
+                        pointRadius:8,
+                    }  
+
+                ]  
+            },
+            /* axes config and styling */
+            options: {
+                title: {
+                    display: false,
+                    // Maintaining title formatting in the event that it is desired
+                    // text: "Habit History",
+                    // fontColor: "#CCC",
+                    // fontStyle: "bold",
+                    // fontSize: "20"
+                },
+                legend: {
+                    labels: {
+                        fontStyle: "bold",
+                        fontColor: "#CCC"
+                    }
+                },
+                scales: {
+                    /* time based x axis */
+                    xAxes: [
+                    {
+                        type: 'time',
+                        time: {
+                            unit: 'day'
+                        },
+                        ticks: {
+                            fontSize: "14",
+                            fontStyle: "bold",
+                            fontColor: "#CCC"
+                        },
+                    }
+                    ],
+                    yAxes: [
+                    {
+                        /* y axis for "Exercise" dataset */
+                        id: 'A',
+                        type: 'linear',
+                        position: 'left',
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Exercise (minutes)',
+                            fontColor: "#389EAA",
+                            fontSize: "14",
+                            fontStyle: "bold"
+                        },
+                        ticks: {
+                            min: 0,
+                            stepSize: 5,
+                            fontColor: "#389EAA",
+                            fontSize: "14",
+                            fontStyle: "bold",
+                            /* function to hide 0 values on axes */
+                            callback: function(value, index) {
+                                if (value == 0) return "";
+                                else return value;
+                            }
+                        },
+                        gridLines: {
+                            display: false,
+                        }
+                    },
+                    {
+                        /* y axis for "Sleep" dataset */
+                        id: 'B',
+                        type: 'linear',
+                        position: 'left',
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Sleep (hours)',
+                            fontColor: "#28AC60",
+                            fontSize: "14",
+                            fontStyle: "bold"
+                        },
+                        ticks: {
+                            min: 0,
+                            max: 12,
+                            stepSize: 1,
+                            fontColor: "#28AC60",
+                            fontSize: "14",
+                            fontStyle: "bold",
+                            /* function to hide 0 values on axes */
+                            callback: function(value, index) {
+                                if (value == 0) return "";
+                                else return value;
+                            }
+                        },
+                        gridLines: {
+                            display: false,
+                        }
+                    },
+                    {
+                        /* y axis for "Mood" & "Energy" datasets */
+                        id: 'C',
+                        type: 'linear',
+                        position: 'right',
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Mood/Energy (Scale: 1-10)',
+                            fontColor: "#a804ed",
+                            fontSize: "14",
+                            fontStyle: "bold"
+                        },
+                        ticks: {
+                            min: 0,
+                            max: 10,
+                            stepSize: 1,
+                            fontColor: "#a804ed",
+                            fontSize: "14",
+                            fontStyle: "bold",
+                            /* function to hide 0 values on axes */
+                            callback: function(value, index) {
+                                if (value == 0) return "";
+                                else return value;
+                            }
+                        },
+                        gridLines: {
+                            display: false,
+                        }
+                    },
+                    {
+                        /* y axis for "Meditate" dataset */
+                        id: 'D',
+                        type: 'linear',
+                        position: 'right',
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Meditate',
+                            fontColor: "#FFFF00",
+                            fontSize: "14",
+                            fontStyle: "bold"
+                        },
+                        ticks: {
+                            min: 0,
+                            max: 1.8, /* max set at 2 so that a "Yes" is plotted in the middle of the graph as opposed to the top */
+                            fontColor: "#FFFF00",
+                            fontSize: "14",
+                            fontStyle: "bold",
+                            /* Label axis with a "Yes" instead of a 1 for user transparency*/
+                            callback: function(value, index) {
+                            if (value == 1) return "Yes";
+                            if (value == 0) return "No";
+                            },
+                        },
+                        gridLines: {
+                            display: false,
+                        }
+                    }]
+                }
+            }
+        })
+        </script>
+</div>
+{% endblock %}

@@ -1,0 +1,19 @@
+<!-- debug mode must be turned off for this page to dispaly to the user -->
+
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+
+{% block title %}404 PAGE NOT FOUND{% endblock %}
+
+{% block content %}
+{% include "nav.html" %}
+<div class="jumbotron text-center">
+    <h1 class="display-4 text-danger">404 PAGE NOT FOUND</h1>
+    <p class="lead"> Uh oh! Looks like the page was not found, sorry about that.</p>
+</div>
+
+
+
+
+
+{% endblock %}

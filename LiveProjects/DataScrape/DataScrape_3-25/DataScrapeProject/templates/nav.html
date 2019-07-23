@@ -1,0 +1,35 @@
+
+{% load static from staticfiles %}
+
+<nav class="navbar navbar-toggleable-md fixed-top navbar-dark" id="default-nav">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span> 
+    </button>
+    <a class="navbar-brand" href="#">
+
+      {% if user.userprofile.image %}
+        <img src="{{ user.userprofile.image.url }}" width="50" height="48" alt="">
+      {% endif %}
+
+    </a>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item pr-3">
+          <a class="btn default-button" href='/home'>Dashboard</a>
+        </li>
+        <li class="nav-item pr-3">
+          <a class="btn default-button" href="/messageinbox">Messages</a>
+        </li>        
+        <li class="nav-item pr-3">
+          <a class="btn default-button" href='/profile'>Settings</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0 hidden-sm-down">
+        <a class="btn default-button" href="{% url 'logout' %}">Logout</a>
+      </form>
+    </div>
+  </nav>
+  <br>

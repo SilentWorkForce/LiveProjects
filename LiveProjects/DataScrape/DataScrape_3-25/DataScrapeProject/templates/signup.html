@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Sign Up{% endblock %}
+{% block content %}
+<div class="reg_container text-center">
+<h1>Sign Up</h1>
+	<form method="post" class="registration" >
+        {% csrf_token %}
+
+        <label for="username">
+            <i class="fas fa-user fa-2x" style="padding-right: 5px;"></i>
+            <span>Username</span>
+            <input class = "reg_input" type="text" name="username" maxlength="150" id="id_username" minlength="3" required>
+            <ul class="input-requirements">
+                <li>At least 3 characters long</li>
+                <li>Must only contain letters and numbers (no special characters)</li>
+            </ul>             
+        </label>
+        <label for="email">
+            <i class="fas fa-at fa-2x" style="padding-right: 5px;"></i>
+            <span>Email</span>            
+            <input class = "reg_input" type="email" name="email" maxlength="75" required id="id_email">
+            <ul class="input-requirements">
+                <li>Please enter your email address.</li>
+            </ul>
+        </label>
+        <label for="password">
+            <i class="fas fa-check-circle fa-2x" style="padding-right: 5px;"></i>
+            <span>Password</span>
+            <input class = "reg_input" type="password" name="password1" id="password" maxlength="100" minlength="8" required>
+            <ul class="input-requirements">
+                <li>At least 8 characters long</li>
+                <li>Contains at least 1 number</li>
+                <li>Contains at least 1 lowercase letter</li>
+                <li>Contains at least 1 uppercase letter</li>
+                <li>Contains a special character (e.g. @ !)</li>
+                
+
+            </ul>
+        </label>
+        <label for="password_repeat">
+            <i class="fas fa-check-circle fa-2x" style="padding-right: 5px;"></i>
+            <span>Repeat Password</span>
+            <input class = "reg_input" type="password" name="password2" id="password_repeat" maxlength="100" minlength="8" required>
+            <ul class="input-requirements">
+                <li>Please re-enter your password.</li>
+            </ul>
+        </label>
+        <br>
+    <!-- finds and reposts errors from built in Django form functions-->
+		{% if form.non_field_errors %}
+            {% for field in form %}
+                <div class="error_message">
+                    {{ field.errors }}   
+                </div>
+            {% endfor %}
+        {% endif %} 
+        {% if form.errors %}
+            {% for field in form %}
+                <div class="error_message">
+                    {{ field.errors }}
+                </div>
+            {% endfor %}
+        {% endif %}
+       
+		<div>
+            <button class="btn default-button" type="submit" style="margin-right: 10px;">Create Account</button>
+            <a class="btn default-button" href="{% url 'home' %}">Cancel</a>
+
+           
+
+        </div>
+    </form>
+</div>
+
+
+
+{% endblock %}
+
+

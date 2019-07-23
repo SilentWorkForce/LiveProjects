@@ -1,0 +1,87 @@
+﻿/*Custom css to override specific bootstrap 4 themes*/
+:root {
+    --dark-brown: #5b4e50;
+    --light-grey: #d7ddde;
+}
+
+body {
+    color: var(--dark-brown);
+}
+
+.panel-default > .panel-heading {
+    color: var(--light-grey);
+    background-color: var(--dark-brown);
+}
+
+.panel-info > .panel-heading {
+    color: var(--light-grey);
+    background-color: var(--dark-brown);
+}
+
+.bg-info {
+    background-color: var(--dark-brown);
+}
+
+.thumbnail .caption {
+    color: var(--light-grey);
+}
+
+h2 {
+    color: var(--dark-brown);
+}
+
+h4 {
+    color: var(--dark-brown);
+}
+
+h4.landingPageHeading {
+    color: var(--light-grey);
+}
+
+.modal-header {
+    background-color: var(--dark-brown);
+}
+
+.panel-body a {
+    color: var(--dark-brown);
+}
+
+i {
+    color: var(--light-grey);
+}
+
+a {
+    color: var(--dark-brown);
+}
+
+a.createNew {
+    color: var(--light-grey);
+}
+
+a.jobDetails {
+    color: var(--light-grey);
+}
+
+a.landingPageLink {
+    color: var(--light-grey);
+}
+
+a.dashBoardLink {
+    color: var(--light-grey);
+}
+
+.label-success {
+    background-color: #5f8b7a;
+}
+
+.btn-primary {
+    background-color: var(--dark-brown);
+    border-color: var(--dark-brown);
+    color: var(--light-grey);
+}
+
+.btn-info {
+    background-color: var(--dark-brown);
+    border-color: var(--dark-brown);
+    color: var(--light-grey);
+}

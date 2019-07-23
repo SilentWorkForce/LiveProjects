@@ -1,0 +1,40 @@
+<!-- templates/home.html-->
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+
+{% block title %}Recipes{% endblock %}
+
+{% block content %}
+{% include 'nav.html' %}
+
+{% if results == True %}
+  <h2 class="text-center color-user">Recipes for {{ category }}:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+{% else %}
+  <h2 class="color-user">Search below for a recipe by ingredient:</h2> 
+{% endif %}
+
+<div class="topnav text-center">
+  <div class="search-container">
+    <form method="POST">
+      {% csrf_token %}
+      <input class="recipe-searchbox" type="text" placeholder="Search.." name="search">
+      <button class="btn default-button" type="submit">Go</button>
+    </form>
+  </div>
+</div>
+
+{% if results == True %}
+<div class="flex-container d-flex" id="recipes-box">
+  {% for meal in meals %}
+    <div class="recipe-display col-sm" id="{{ meal.id }}">
+      <img class="recipe-image" src="{{ meal.image }}" width="250px">
+      <h4>{{ meal.title }}</h4>
+      <form method="GET" id="form-{{ meal.id }}" action="{% url 'recipe' id=meal.id %}"></form>
+    </div>
+  {% endfor %}
+</div>
+{% elif results == False %}
+<h3>Sorry, there are no recipes for that search.</h3>
+{% endif %}
+
+{% endblock %}

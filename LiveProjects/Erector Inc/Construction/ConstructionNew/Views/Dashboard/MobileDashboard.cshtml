@@ -1,0 +1,30 @@
+﻿<h2>Dashboard</h2>
+@using Microsoft.AspNet.Identity
+@using ConstructionNew.Models
+@Styles.Render("~/Content/custom.css")
+@{
+    ViewBag.Title = "ERECTORS, INC.";
+}
+
+
+    <div class="btn-toolbar " role="toolbar" aria-label="Toolbar with button groups">
+        <div class="btn-group" role="group" aria-label="First group">
+            <button type="button" class="btn btn-info btn-lg btn-block" style="width: 170px;">@Html.ActionLink("My Jobs", "Index", "Jobs")</button>
+        </div>
+        <div class="btn-group" role="group" aria-label="Second group">
+            <button type="button" class="btn btn-info btn-lg btn-block" style="width: 170px;">@Html.ActionLink("Company News", "Index", "CompanyNews")</button>
+        </div>
+    </div>
+    <br>
+    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+        <div class="btn-group" role="group" aria-label="Third group">
+            <button type="button" class="btn btn-info btn-lg btn-block" style="width: 170px;">@Html.ActionLink("Mobile Chat", "MobileChat", "ChatMessages", routeValues: null, htmlAttributes: new { })</button>
+        </div>
+        <div class="btn-group" role="group" aria-label="Fourth group">
+            <button type="button" class="btn btn-info btn-lg btn-block" style="width: 170px;">
+                @Html.ActionLink("Manage Account", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", Style = "color: White;" })
+            </button>
+        </div>
+    </div>
+
+

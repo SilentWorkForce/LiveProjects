@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+{% include "nav.html" %}
+  <h2>Send a Message</h2>
+
+  <form class="default-margin" method="post">
+    {% csrf_token %}
+    <h4>Recipient</h4>
+    {{ form.recipient }}
+    <h4>Message</h4>
+    {{ form.messageBody }}
+    <br>
+    <button class="btn default-button message-buttons" type="submit">Send</button>
+    <p>Recipient</p>
+  </form>
+
+{% endblock %}

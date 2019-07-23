@@ -1,0 +1,9 @@
+
+.main-image{
+    width: 100px;
+    height: 100px;
+    border: 2
+    border-color: black
+    text-align: center
+    content-align: center
+}

@@ -1,0 +1,139 @@
+﻿@model ConstructionNew.Models.JobDetailsViewModel
+
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Jobs</h2>
+
+<div>
+    <h4>Job Details</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.JobTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JobTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JobNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JobNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShiftTimes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShiftTimes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StreetAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StreetAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.City)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.State)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.State)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Zipcode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Zipcode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Note)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Note)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ForemanName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ForemanName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+    </dl>
+</div>
+@if (User.IsInRole("Admin"))
+{
+    @Html.ActionLink("Edit", "Edit", new { id = Model.JobId })
+
+}
+<p>
+    @Html.ActionLink("Back to List", "Index") | @Html.ActionLink("Back to Dashboard", "Index", "Dashboard")
+</p>
+
+<!-- References for the map API: Leaflet and a plugin geocoder -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+      integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+      crossorigin="" />
+<script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+        integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+        crossorigin=""></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+<script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+
+<div id="map"></div> <!-- The job location map will render here -->
+
+<script type="text/javascript">
+    // Render the map with proper location and a destination marker
+    function initMap() {
+        // Set the address from the database and intialize the starting map view/zoom level
+        var address = '@Model.StreetAddress @Model.State @Model.Zipcode';
+        var map = L.map('map').setView([0, 0], 14);
+        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+        console.log(address);
+
+        // Convert the address into coordinates and map it with a marker
+        geocoder = new L.Control.Geocoder.Nominatim();
+        geocoder.geocode(address, function (results) {
+            latLng = new L.LatLng(results[0].center.lat, results[0].center.lng);
+            marker = new L.Marker(latLng);
+            map.setView(latLng);
+            marker.addTo(map);           
+        });
+        L.Control.geocoder().addTo(map); // Add a search bar for the user to manually find a location
+    }
+
+    initMap(); // Call the function to create the map
+</script>

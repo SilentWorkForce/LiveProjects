@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+{% include "nav.html" %}
+<h1 class='text-center pt-5'>Currency Converter</h1>
+<br />
+<div style="text-align: center">
+    <br />
+    <form method="POST">
+    <p> {{ form.base_currency}} Amount: </p>
+
+        {% csrf_token %}
+        {{ form.money }}
+</div>
+<br />
+<div style="text-align: center">
+    <p> Target Currency</p>
+    {{ form.target_currency }}
+    <button type="submit">💰Convert</button>
+    </form>
+
+</div>
+
+
+{% endblock content %}

@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% block title %}Directions{% endblock %}
+
+{% block content %}
+{% include "nav.html" %}
+<head>
+    <!--Loads mapquest's API and CSS, as well as JQuery-->
+    <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+</head>
+
+<div id="map"></div>
+<div class="container">
+    <!--Form to submit "to" and "from" information before submitting to the traffic app.-->
+    <div class="form-group text-danger" >
+        <h1>Enter your current location and destination!</h1>
+        <div class="card mx-auto mt-4 py-4 text-center" style="width: 35rem">
+            <form method="POST">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-sm">
+                        <p>From:</p>
+                    </div>
+                    <div class="col-md entryfield">
+                        {{ form.start }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm">
+                        <p>To:</p>
+                    </div>
+                    <div class="col-md">
+                        {{ form.end }}
+                    </div>
+                </div>
+                <button type="submit" id="go" class="btn default-button message-buttons text-right">Go!</button>
+            </form>
+        </div>
+    </div>
+    
+    <!--Supplies To and From text to traffic info-->
+    <div class="directions text-danger">
+        <h2 id="dir-heading">Directions to {{ route.to }} from {{ route.from }}:</h2>
+    </div>
+
+    <!--Supplies list of directions-->
+    <div class="container card col-8" style="margin-bottom: 60px">
+        {% for direction in route.directions %}
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">{{ direction }}</li>
+        </ul>
+        {% endfor %}
+    </div>
+</div>    
+<script>
+
+L.mapquest.key = 'qGyMswGafi2puTNqSP91ETXcNRDFrAyG';
+
+//Hides map until directions have been found
+document.getElementById('map').style.width = 0
+document.getElementById('map').style.height = 0
+
+//Get text of direction heading
+var test = $('#dir-heading').html();
+
+if( test.length > 21) { //Checks if heading text is default length, or if it has directions in it
+    
+    //Gets directions
+    
+    function directionsCallback(error, response) {
+        var map = L.mapquest.map('map', {
+        center: [0,0],
+        layers: L.mapquest.tileLayer('map'),
+        zoom: 7
+    });
+
+    //Adds route direction to map
+    L.mapquest.directionsLayer({
+        directionsResponse: response
+        }).addTo(map);
+        return map;
+    }
+
+    //Get starting and ending locations entered by user
+    var startLoc = $("#id_start").val();
+    var endLoc = $("#id_end").val();
+
+    var directions = L.mapquest.directions();
+    
+    //Returns starting and ending points to API
+    directions.route({
+        start: startLoc,
+        end: endLoc
+    });
+    
+    //Displays map now that directions have been found
+    document.getElementById('map').style.width = "100%"
+    document.getElementById('map').style.height = "530px"
+    
+    var map = L.mapquest.map('map', {
+        center: [0, 0],
+        layers: L.mapquest.tileLayer('map'),
+        zoom: 12
+    });
+};
+</script>
+
+{% endblock %}

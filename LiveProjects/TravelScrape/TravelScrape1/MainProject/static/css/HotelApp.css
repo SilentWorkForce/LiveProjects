@@ -1,0 +1,11 @@
+form .row{
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.results_container{
+    padding: 30px 50px;
+    margin: 30px;
+    border: 4px inset black;
+}

@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+{% include "nav.html" %}
+<h1 class='text-center pt-5'>Currency Converter</h1>
+<br />
+<div style="text-align: center">
+
+    <h3><a href="/currency/">←&nbsp;Back</a></h3>
+    <br />
+    <h3>{{ conversion.original }} {{ conversion.base }} =
+        {{ conversion.amount }} {{ conversion.currency }}</h3>
+
+<hr />
+
+
+    <div>
+        <h5> Current rates based on EUR: </h5>  EUR &nbsp;{{ conversion.rates.EUR }} <br />
+    </div> 
+    <div>
+        USD &nbsp;{{ conversion.rates.USD }} <br />
+    </div> 
+    <div>
+        BTC &nbsp;{{ conversion.rates.BTC }} <br />
+    </div> 
+    <div>
+        JPY &nbsp;{{ conversion.rates.JPY }} <br />
+    </div> 
+    <div>
+        GBP &nbsp;{{ conversion.rates.GBP }} <br />
+    </div> 
+    <div>
+        AUD &nbsp;{{ conversion.rates.AUD }} <br />
+    </div> 
+    <div>
+        CHF &nbsp;{{ conversion.rates.CHF }} <br />
+    </div> 
+    <div>
+        CNY &nbsp;{{ conversion.rates.CNY }} <br />
+    </div> 
+    <div>
+        SEK &nbsp;{{ conversion.rates.SEK }} <br />
+    </div> 
+    <div>
+        NZD &nbsp;{{ conversion.rates.NZD }} <br />
+    </div> 
+    <div>
+        MXN &nbsp;{{ conversion.rates.MXN }} <br />
+    </div> 
+    <div>
+        SGD &nbsp;{{ conversion.rates.SGD }} <br />
+    </div>
+    <div>
+        HKD &nbsp;{{ conversion.rates.HKD }} <br />
+    </div> 
+    <div>
+        NOK &nbsp;{{ conversion.rates.NOK }} <br />
+    </div> 
+    <div>
+        KRW &nbsp;{{ conversion.rates.KRW }} <br />
+    </div> 
+    <div>
+        TRY &nbsp;{{ conversion.rates.TRY }} <br />
+    </div> 
+    <div>
+        RUB &nbsp;{{ conversion.rates.RUB }} <br />
+    </div> 
+    <div>
+        INR &nbsp;{{ conversion.rates.INR }} <br />
+    </div> 
+    <div>
+        BRL &nbsp;{{ conversion.rates.BRL }} <br />
+    </div> 
+    <div>
+        ZAR &nbsp;{{ conversion.rates.ZAR }} <br />
+    </div> 
+
+
+</div>
+
+
+{% endblock content %}

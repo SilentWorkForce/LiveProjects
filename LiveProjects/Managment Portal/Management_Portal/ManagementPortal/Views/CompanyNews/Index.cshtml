@@ -1,0 +1,49 @@
+﻿@model IEnumerable<ManagementPortal.Models.CompanyNews>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="IndexBody">
+    <h2 class="text-center">Index</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <div class="row no-gutters">
+    <table class="table">
+        <tr>
+            <th class="col-1">
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th class="col-6">
+                @Html.DisplayNameFor(model => model.NewsItem)
+            </th>
+            <th class="col-1">
+                @Html.DisplayNameFor(model => model.ExpirationDate)
+            </th>
+            <th class="col-1"></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td class="col-1">
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td class="col-6">
+                @Html.DisplayFor(modelItem => item.NewsItem)
+            </td>
+            <td class="col-1">
+                @Convert.ToDateTime(item.ExpirationDate).ToString("MM-dd-yyyy")
+            </td>
+            <td class="col-1">
+                @Html.ActionLink("Edit", "Edit", new { id=item.NewsId }) |
+                @Html.ActionLink("Details", "Details", new { id=item.NewsId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.NewsId })
+            </td>
+        </tr>
+    }
+
+    </table>
+    </div>
+</div>

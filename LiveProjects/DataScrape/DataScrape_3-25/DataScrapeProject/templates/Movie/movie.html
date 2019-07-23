@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+{% block title %}Top 5 Movies{% endblock %}
+
+{% block content %}
+{% include 'nav.html' %}
+
+    <section class="hero is-primary text-center">
+        <div class="hero-body text-center">
+            <div class="container">
+                <h1 class="title">
+                    Current Top Movies
+                </h1>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    <div class="dropdown">
+                        <button class="btn default-button dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Number of Movies to Display
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="display-item dropdown-item" id="5">5</a>
+                            <a class="display-item dropdown-item" id="10">10</a>
+                            <a class="display-item dropdown-item" id="20">20</a>
+                            <a class="display-item dropdown-item" id="50">50</a>
+                        </div>
+                        <form method="POST" id="display-num">
+                            {% csrf_token %}
+                            <input type="hidden" id="display" name="displayNumber" value="">
+                        </form>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="dropdown">
+                        <button class="btn default-button dropdown-toggle" type="button" id="sortButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Genre sort
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="sortButton">
+                            <a class="sort-item dropdown-item" id="All">All</a>
+                            <a class="sort-item dropdown-item" id="Action">Action</a>
+                            <a class="sort-item dropdown-item" id="Adventure">Adventure</a>
+                            <a class="sort-item dropdown-item" id="Animation">Animation</a>
+                            <a class="sort-item dropdown-item" id="Biography">Biography</a>
+                            <a class="sort-item dropdown-item" id="Comedy">Comedy</a>
+                            <a class="sort-item dropdown-item" id="Crime">Crime</a>
+                            <a class="sort-item dropdown-item" id="Drama">Drama</a>
+                            <a class="sort-item dropdown-item" id="Family">Family</a>
+                            <a class="sort-item dropdown-item" id="Fantasy">Fantasy</a>
+                            <a class="sort-item dropdown-item" id="Noir">Film-Noir</a>
+                            <a class="sort-item dropdown-item" id="Horror">Horror</a>
+                            <a class="sort-item dropdown-item" id="Musical">Musical</a>
+                            <a class="sort-item dropdown-item" id="Mystery">Mystery</a>
+                            <a class="sort-item dropdown-item" id="Romance">Romance</a>
+                            <a class="sort-item dropdown-item" id="Sci-Fi">Sci-Fi</a>
+                            <a class="sort-item dropdown-item" id="Sport">Sport</a>
+                            <a class="sort-item dropdown-item" id="Thriller">Thriller</a>
+                            <a class="sort-item dropdown-item" id="War">War</a>
+                            <a class="sort-item dropdown-item" id="Western">Western</a>
+                        </div>
+                        <form method="POST" id="sort-form">
+                            {% csrf_token %}
+                            <input type="hidden" id="sort" name="sort-type" value="">
+                        </form>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <button class="btn default-button" id="year-sort" type="button">
+                        {% if sortBool == 1 %}
+                        No Sort
+                        {% else %}
+                        Sort By Year
+                        {% endif %}
+                    </button>]
+                    <form method="POST" id="sort-year">
+                        {% csrf_token %}
+                        <input type="hidden" name="year-sort" id="sort-input" value="{{ sortBool }}">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section">
+    <!--making list for top five movies-->
+    <div class="container">
+        {% if imdb.0 == None %}
+        <div class="row m-3 movie-entity">
+            <h4>Sorry, there are no movies to display for this search.</h4>
+        </div>
+        {% else %}
+        {% for film in imdb %}
+        <div class="row m-3 movie-entity">
+            <div class="col-sm">
+                <img src="{{ film.image }}" width="150px">
+            </div>
+            <div class="col-sm">
+                <h4>{{ film.title }}</h4>
+                <button id="button-{{ film.index }}" class="btn default-button movie-deets">See Details</button>
+            </div>
+            <div id="details-{{ film.index }}" style="display: none;">
+                <div class="col-sm">
+                    <h4>Year: {{ film.year }}</h4>
+                    <h4>Plot: {{ film.plot }}</h4>
+                    <h4>Genre: {{ film.genre }}</h4>
+                    <h4>Director: {{ film.director }}</h4>
+                    <h4>Length: {{ film.runtime }}</h4>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+    </section>
+
+{% endblock %}

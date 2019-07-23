@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/custom.css")
+
+</head>
+<body>
+    @if (Request.Browser.IsMobileDevice && Request.Url.PathAndQuery.StartsWith("/Dashboard/"))
+    {
+        //Checks if the user is on a mobile device and is on the dashboard page. If this is the case
+        //it will render the home banner on the mobile dashboard page.
+
+        <div class="ei-banner">
+            <img>
+        </div>
+    }
+    else if (!Request.Browser.IsMobileDevice)
+    {
+        //if the user is not on a mobile device, the home banner will be rendered on all pages.
+        <div class="ei-banner">
+            <img>
+        </div>
+    }
+
+    <div class="navbar navbar-default navbar-fixed-top ei-navbar" role="navigation" data-spy="affix" data-offset-top="400">
+        <div class="container">
+            <div class="navbar-header">
+                <!--enter dashboard link in href-->
+                <a href="/" class="navbar-brand" id="nav-brand">ERECTORS INC.</a>
+                <a class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+            <div class="collapse navbar-collapse ei-navbar" id="nav-links bs-slide-dropdown">
+                @if (User.IsInRole("Admin") || User.IsInRole("Manager") || User.IsInRole("Employee"))
+                {
+                    <ul class="nav navbar-nav ml-auto">
+                        <li>@Html.ActionLink("Dashboard", "Index", "Dashboard", null, new { Style = "color: White;" })</li>
+                        @*Admin only*@
+                        @if (User.IsInRole("Admin") || User.IsInRole("Manager"))
+                        {
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="users">Users</a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                        <a class="dropdown-item">@Html.ActionLink("Unregistered Users", "Index", "CreateUserRequests")</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item">@Html.ActionLink("All Users", "AllUsers", "CreateUserRequests")</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item">@Html.ActionLink("Create New", "Create", "CreateUserRequests")</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        }
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="jobs">Jobs</a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a class="dropdown-item">@Html.ActionLink("List", "Index", "Jobs")</a>
+                                </li>
+                                @*Admin only*@
+                                @if (User.IsInRole("Admin") || User.IsInRole("Manager"))
+                                {
+                                    <li>
+                                        <a class="dropdown-item">@Html.ActionLink("Create New", "Create", "Jobs")</a>
+                                    </li>
+                                }
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="schedule">Schedule</a>
+                            <ul class="dropdown-menu" role="menu">
+                                @*Admin only*@
+                                @if (User.IsInRole("Admin") || User.IsInRole("Manager"))
+                                {
+                                    @*May need this link later, but not for now
+                                    <li>
+                                        <a class="dropdown-item">@Html.ActionLink("Edit", "Edit", "Schedules")</a>
+                                    </li>*@
+                                    <li>
+                                        <a class="dropdown-item">@Html.ActionLink("Add New Item", "Create", "Schedules")</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item">@Html.ActionLink("Create Weekly Schedule", "MasterScheduleEdit", "Schedules")</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item">@Html.ActionLink("Assign Foreman", "AssignForeman", "Schedules")</a>
+                                    </li>
+                                }
+                                <li>
+                                    <a class="dropdown-item">@Html.ActionLink("View All", "Index", "Schedules")</a>
+                                </li>
+
+                                    <li>
+                                        <a class="dropdown-item">@Html.ActionLink("My Schedule", "MySchedulePartial", "Schedules")</a>
+                                    </li>
+
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="company">Company</a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a class="dropdown-item">@Html.ActionLink("News", "Index", "CompanyNews")</a>
+                                </li>
+                                @*Admin only*@
+                                @if (User.IsInRole("Admin") || User.IsInRole("Manager"))
+                                {
+                                    <li>
+                                        <a class="dropdown-item">@Html.ActionLink("Create New", "Create", "CompanyNews")</a>
+                                    </li>
+                                }
+
+                            </ul>
+                        </li>
+                    </ul>
+                }
+                @Html.Partial("_LoginPartial")
+                
+            </div>
+        </div>
+    </div><!-- /.navbar -->
+
+
+    <div class="container">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - ERECTORS INC.</p>
+        </footer>
+    </div>
+    @RenderSection("scripts", false)
+    @Scripts.Render("~/bundles/modernizr")
+
+</body>
+</html>
+@*This will only show the chat box if the user is logged in.*@
+@if (Request.IsAuthenticated)
+{
+    @Html.Partial("Chat")
+}

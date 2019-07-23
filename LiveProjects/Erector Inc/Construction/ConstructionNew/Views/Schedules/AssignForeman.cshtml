@@ -1,0 +1,68 @@
+﻿@using ConstructionNew.Models;
+@model dynamic
+@{
+    ViewBag.Title = "Assign Foreman";
+}
+<link href="~/Content/Site.css" rel="stylesheet" />
+
+<h1 id="assignHeader">Assign Foreman</h1>
+
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <div class="row">
+            <div id="sidebar2">
+                <div class="sidebar-header">
+                    <h3>Foreman</h3>
+                </div>
+                <ul id="employeesMaster" class="sortable_list connectedSortable">
+                    @foreach (ApplicationUser user in Model.Employees)
+                    {
+                        if (user.WorkType.ToString() == "Foreman")
+                        {
+                            <li>@Html.DisplayFor(modelItem => user.UserName)</li>
+                        }
+                    }
+                </ul>
+            </div>
+
+
+            <div class="container" id="jobBox">
+                <div class="jobBoxheader"><h3>Jobs</h3></div>
+                @foreach (Job job in Model.Jobs)
+                {
+                    if (job.JobNumber != null)
+                    {
+                    <div id="sidebar">
+                        <div class="sidebar-header">
+                            <h3>@Html.DisplayFor(modelItem => job.JobTitle)</h3>
+                            <h5>Job #: @Html.DisplayFor(modelItem => job.JobNumber)</h5>
+                            <form>
+                                Start Date: <input type="date" value="startDate" class="datepicker" style="margin-bottom:8px;" />
+                            </form>
+                            <form>
+                                End Date: <input type="date" value="endDate" class="datepicker" style="margin-left: 4px; margin-bottom:8px;" />
+                            </form>
+                        </div>
+                        <ul class="sortable_list connectedSortable"><li id="no">Drag Foreman Here</li></ul>
+                        <button type="button" style="margin-bottom:8px;" onclick="return confirm('Save Changes?')">Save Changes</button>
+                    </div>
+                    }
+                 }
+            </div>
+        </div>
+    </div>
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script src="~/Scripts/jquery-ui.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".sortable_list").sortable({
+            connectWith: ".connectedSortable",
+            cancel: "#no",
+            receive: function (event, ui) {
+                if ($(this).children().length > 2) {
+                    $(ui.sender).sortable('cancel');
+                }
+            }
+        }).disableSelection();
+    });
+</script>

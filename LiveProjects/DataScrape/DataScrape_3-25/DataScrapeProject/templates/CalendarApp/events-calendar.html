@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}events-calendar{% endblock %}
+
+{% block content %}
+{% include "nav.html" %}
+<body>
+    <div class="container">
+        <h1 class="title">
+            Google Events Calendar
+        </h1>
+    </div>
+    <br>
+    <section class="section">
+        <div class="container">
+            <form style="color:white;" method="POST">
+                {% csrf_token %}
+                        <div class="field has-addons">
+                            <div class="control is-expanded">
+                                {{ form.as_ul }}
+                            </div>
+                            <br>
+                            <div class="control">
+                                <button type="submit" class="button is-info">
+                                   Submit
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <button onclick="window.location.href = 'update-calendar';">
+                    Update Events
+            </button>
+        </div>
+    </section>   
+</body>
+{% endblock %}

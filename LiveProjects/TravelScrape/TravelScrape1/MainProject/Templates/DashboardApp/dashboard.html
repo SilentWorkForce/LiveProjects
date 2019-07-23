@@ -1,0 +1,73 @@
+<!-- Except for the nav.html content this controls the dashboard view -->
+
+{% extends 'base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+
+{% include "nav.html" %}
+
+<h2 class="text-center">Welcome to TravelScrape!</h2>
+
+
+
+
+<!--In order to help with style I placed groups of 4 app icons at a time in a fluid container within th row appRow-->
+
+<div class="container-fluid">
+    <div class="row mx-auto appRow">
+        
+        <div class="col">            
+            <a href="/ToDoListApp" class="text-center"><i class="fas fa-tasks fa-5x"></i><br>To-Do List</a>            
+        </div>
+        <div class="col">
+            <a href="/budget" class="text-center"><i class="fas fa-money-check-alt fa-5x"></i><br>Budget</a>
+        </div>
+        <div class="col">
+            <a href="/advisory" class="text-center"><i class="fas fa-exclamation-triangle fa-5x"></i><br>Travel Advisories</a>
+        </div>
+        <div class="col">
+            <a href="/currency" class="text-center"><i class="fas fa-money-bill fa-5x"></i><br>Currency</a>
+        </div>
+    </div>    
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<!--In order to help with style I placed groups of 4 app icons at a time in a fluid container within th row appRow-->
+
+    <div class="row mx-auto appRow">
+        <div class="col">            
+            <a href="/dummy" class="text-center"><i class="fas fa-plane-departure fa-5x"></i><br>Flights</a>             
+        </div>
+        <div class="col">            
+            <a href="/dummy" class="text-center"><i class="fas fa-hotel fa-5x"></i><br>Hotels</a>            
+        </div>
+        <div class="col">            
+            <a href="/dummy" class="text-center"><i class="fab fa-slack fa-5x"></i><br>Slack</a>           
+        </div>
+        <div class="col">
+            <a></a>
+        </div>
+    </div>
+
+   
+    
+</div>
+
+
+      
+
+
+
+
+
+{% endblock %}

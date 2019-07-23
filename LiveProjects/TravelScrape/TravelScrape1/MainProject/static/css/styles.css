@@ -1,0 +1,363 @@
+/*************************************************/
+/*     CSS PAGE STYLES FOR ALL TRAVELSCRAPE      */
+/*************************************************/
+
+
+/******************************************/
+/*     CSS PAGE STYLES FOR DASHBOARD      */
+/******************************************/
+
+body {
+
+    /* background-color: rgb(236, 195, 248); */
+    /* background-color: #E0E0E0; */
+
+
+    /*Background Version 1 (okay) */
+    /* background: url(/static/images/traveling.jpg) 50% 0 no-repeat fixed;     
+    height: 100%; */
+    
+
+     /* Background Version 2 (favorite) */
+     background-image: url(/static/images/traveling.jpg);
+     height: 100%;   
+     background-repeat: no-repeat;
+     background-size: cover;
+
+}
+
+
+
+
+h2 {
+    font-weight: bold;
+}
+
+/* The above are some experimental AddIns */
+
+.appRow{
+    
+    position: absolute; /*helps to fix the position for the row box*/
+    left: 45%; /*This moves the row box left or right on the page based on the percentage you use */
+    top: 100; /* distance from the top */
+    width: 53%; /*was at 80% */
+    text-align: center;
+    margin: auto;
+    text-shadow: 0px 3px 4px rgba(0, 0, 0, .25);    
+    padding-top: 30px;
+    /* background-color: rgb(255, 255, 255); */
+    background-color: transparent;
+
+
+    /*testing for raised effect -- seems to give it a nice look*/
+    line-height: 4em;
+    margin: 2em 4em;
+    border: 6px outset #9a9;
+    -webkit-box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
+    -moz-box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
+    
+}
+
+/* Optional hover effect for box */
+.appRow:hover{
+    
+    /* background-color: rgb(255, 255, 255); */
+     
+    background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+}
+
+h2{
+    padding: 40px;
+    margin-bottom: 40px;
+}
+
+nav{
+    margin-bottom: 20px;
+    border:6px outset #9a9;
+    -webkit-box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
+    -moz-box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
+
+}
+
+/* To remove an unwanted hover effect */
+nav ul a:hover {
+    background-color: transparent;
+}
+
+
+
+/*This will effect the view behind the raised applications if you need to change color or place images*/
+.container-fluid{
+    /* background-color: rgb(216, 208, 208); */
+    /* background-color: #E0E0E0; */
+    background-color: transparent;
+}
+
+
+
+/**************************************/
+/*     CSS PAGE STYLES FOR LOGON      */
+/**************************************/
+
+
+/* CSS styling for login page */
+
+/* body {
+    backgound-color: whitesmoke;
+} */
+div.container {
+    width: 450px;
+    height: 200px;
+    padding-top: 40px;
+}
+
+h5 {
+    color: gray; 
+    text-align: center;
+    padding-top:30px;
+    padding-bottom: 30px;
+    font-weight: bold;
+}
+
+p.unauthenticated {
+    text-align: center;
+    color: red;
+    font-style: italic;
+    padding-top: 20px;
+}
+
+
+.btn {
+    position: relative;
+    color: black;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bolder;
+    cursor: pointer;
+    padding-left: 45%; 
+}
+
+button:hover {
+    opacity: 0.5;
+  }
+
+label {
+    color: black;
+    padding-right: 14px;
+    padding-left: 50px;
+    font-weight: bold;
+    padding-top: 20px;
+}
+
+input#id_username {
+    background-color: rgb(228, 206, 192);
+    color: red;
+}
+
+input#id_password {
+    color: red;
+    background-color: rgb(228, 206, 192);
+}
+
+
+form {
+    border: 3px solid #f1f1f1;
+
+}
+
+
+/*******************************************/
+/*     CSS PAGE STYLES FOR TO-DO LIST      */
+/*******************************************/
+
+.striker {
+    text-decoration: line-through;
+}
+
+
+
+h1 {
+    text-align: center;
+}
+
+.table {
+    background-color: whitesmoke;
+}
+
+/***************************************/
+/*     CSS PAGE STYLES FOR BUDGET      */
+/***************************************/
+
+/* So Far as a result of combining styles onto one page it is causing some overriding to occur for various css/html/js related to each app*/
+/* As a workaround I have created some specific renaming of classes in order to keep the proper styling in effect */
+/* I'll try to include notes if I feel they stick out to help anyone who comes after and wants to make some fine tuning */
+/* EB -- 6/23/19 */
+
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+/* General BudgetApp Styles */
+html {
+    font-family: 'Montserrat';
+    /* background-color: #E0E0E0; */
+    background-color: transparent;
+
+}
+
+/* Budget Lists Page Styling */
+
+.budgetListContainer {
+    font-family: 'Montserrat';
+}
+
+.budgetList_h1 {
+    text-align: left;
+}
+
+.budgetList_h5 {
+    text-align: left;
+    color: black;
+    font-weight: bold;
+}
+
+h1, h6 {
+    font-weight: bold;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+
+.listRow {
+    /* margin: 0!important; */
+    display: block;
+    margin: auto;
+    width: 50%;
+    position: absolute;
+    left: 10%; /*This moves the row box left or right on the page based on the percentage you use */  
+
+    
+}
+
+.budgetListPanel{
+    background-color: lightgray;
+
+    /* For a 3D raised effect */
+    line-height: 1em;
+    margin: 1em 2em;
+    border: 6px outset #9a9;
+    -webkit-box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
+    -moz-box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
+}
+
+.project_ListBtn {
+    position: relative;
+    color: white;
+    font-size: 13px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    padding: initial;
+
+}
+/* project list (no projects) */
+
+.noproject-wrapper {
+    margin-top: 250px;
+    padding: 80px 0px;
+    border: 6px solid #9e9e9e;
+    border-style: dashed;
+}
+.noproject-wrapper h3 {
+    padding: 10px;
+    margin-bottom: 50px;
+
+}
+
+
+
+
+/* project add view */
+form ul li.category {
+    display: inline-block;
+    background-color: white;
+    padding: 5px 10px;
+    margin-right: 5px;
+}
+
+/* project detail statistics */
+.section-stats h1 {
+    font-size: 4vw;
+    margin: 15px 0px;
+}
+
+@media(max-width: 992px){
+    .section-stats h1 {
+        font-size: calc(16px + 6vw);
+    }
+}
+
+/* Project detail expenses */
+.section-expenses button {
+    padding: 0px 40px;
+    font-weight: bold;
+    text-shadow: 0px 3px 4px rgba(0, 0, 0, .25);
+    background-color: #6FCF97;
+}
+.section-expenses .expense {
+    font-size: 16px;
+    border-radius: 0;
+    margin: 0;
+}
+.section-expenses .expense .category {
+    font-size: 13px;
+}
+.section-expenses li:nth-child(even) .expense {
+    background-color: #F2F2F2;
+}
+.section-expenses .close-icon:hover  {
+    cursor: pointer;
+}
+
+
+/*************************************************/
+/*     CSS PAGE STYLES FOR TRAVEL ADVISORIES     */
+/*************************************************/
+
+
+.main-image{
+    width: 100px;
+    height: 100px;
+    border: 2
+    border-color: black
+    text-align: center
+    content-align: center
+}
+
+
+
+/*****************************************/
+/*     CSS PAGE STYLES FOR CURRENCY      */
+/*****************************************/
+
+
+/****************************************/
+/*     CSS PAGE STYLES FOR FLIGHTS      */
+/****************************************/
+
+
+/***************************************/
+/*     CSS PAGE STYLES FOR HOTELS      */
+/***************************************/
+
+
+/**************************************/
+/*     CSS PAGE STYLES FOR SLACK      */
+/**************************************/
+
+
+/*****************************************/
+/*     CSS PAGE STYLES FOR NEW APPS      */
+/*****************************************/

@@ -1,0 +1,44 @@
+
+
+body {
+    /* background-color: rgb(236, 195, 248); */
+    background-color: #E0E0E0;
+}
+
+
+h2 {
+    font-weight: bold;
+}
+
+/* The above are some experimental AddIns */
+
+.appRow{
+    width: 80%;
+    text-align: center;
+    margin: auto;
+    text-shadow: 0px 3px 4px rgba(0, 0, 0, .25);    
+    padding-top: 30px;
+    background-color: rgb(255, 255, 255);
+    /*testing for raised effect -- seems to give it a nice look*/
+    line-height: 4em;
+    margin: 2em 4em;
+    border: 6px outset #9a9;
+    -webkit-box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
+    -moz-box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
+    
+}
+
+h2{
+    padding: 40px;
+    margin-bottom: 40px;
+}
+
+nav{
+    margin-bottom: 20px;
+}
+/*This will effect the view behind the raised applications if you need to change color or place images*/
+.container-fluid{
+    /* background-color: rgb(216, 208, 208); */
+    background-color: #E0E0E0;
+}
+

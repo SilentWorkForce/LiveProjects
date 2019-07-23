@@ -1,0 +1,26 @@
+Welcome to the Budget App.  Hopefully all that has been built so far can lead to a fully functional user-friendly product to be used by many.
+At this point the application has basic functionality which allows a user to go to budget/add   and fill out a form with as many categories as they want
+at which point they select to start a project/create a budget.  At this point the user will then enter a created budget through their browser window and be allowed to 
+create expenses and see them listed while the allotted amount they created is subtracted from.  As they do research or estimate costs selecting their chosen categories they 
+will be able to see if a trip is possible based on the amount they are willing to spend.
+
+Currently this app has no built in navigation.
+
+In order to test the different parts:
+
+Go to:your running server page + /budget/     This will display a list of available budgets if any were created to enter and test
+
+Go to:your running server page + /budget/add     This displays a form that allows the tester/user to create a budget with amount and categories, then enter the project for testing.
+
+Go to:your running server page + /budget/slug version of budget name   (this can be found thru the app admin page) If you want to go direct to a created budget
+
+Go to:your running server page + /admin   This will allow you to add or make changes to aspects within the budget app if needed to adjust or delete current data
+
+
+Hopefully in the near future stories will be assigned to eliminate the need for this page as all this aspects will be fully functioning within the app and will no longer need to 
+be manually entered to use.
+
+
+Enjoy and good luck.  
+
+Thank you.   -Eric Byrne- 6/18/19

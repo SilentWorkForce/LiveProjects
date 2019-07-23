@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{{ location_data.city }}
+{{ location_data.state }}
+{{ location_data.zip }}
+{% endblock %}

@@ -1,0 +1,1272 @@
+[
+  {
+    "type": "hotel-offers",
+    "hotel": {
+      "type": "hotel",
+      "hotelId": "BRSEASMB",
+      "chainCode": "BR",
+      "dupeId": "700069554",
+      "name": "RENAISSANCE SEATTLE HOTEL",
+      "rating": "4",
+      "cityCode": "SEA",
+      "latitude": 47.60671,
+      "longitude": -122.3312,
+      "hotelDistance": {
+        "distance": 0.4,
+        "distanceUnit": "KM"
+      },
+      "address": {
+        "lines": [
+          "515 MADISON STREET"
+        ],
+        "postalCode": "98104",
+        "cityName": "SEATTLE",
+        "countryCode": "US",
+        "stateCode": "WA"
+      },
+      "contact": {
+        "phone": "1-206-5830300",
+        "fax": "1-206-4470992"
+      },
+      "description": {
+        "lang": "en",
+        "text": "The renaissance seattle hotel is set on a tree- lined hill at the top of madison street one block from the dramatic seattle public library. A location away from the hustle and bustle, yet with excellent freeway access and walking distance proximity to the seattle stadiums, shopping, and sightseeing. You will be delighted by the spacious, high ceilinged lobby newly renovated with colorful furnishings and walls graced with paintings fro a young local artist depicting colorful lcity scenes. Guests enjoy special amenities including fully stocked refreshment centers, high-speed internet access, and complimentary coffee or tea. Grayline airport express offers shuttle service to and from sea-tac international airport, 20 minutes away. The hotel offers secured underground parking for a fee (6ft 2in height clearancce)."
+      },
+      "amenities": [
+        "CONVENTION_CTR",
+        "MEETING_ROOMS",
+        "COFFEE_SHOP",
+        "ICE_MACHINES",
+        "RESTAURANT",
+        "HANDICAP_FAC",
+        "ACC_TOILETS",
+        "SERV_DOGS_ALWD",
+        "DIS_PARKG",
+        "HANDRAIL_BTHRM",
+        "BEAUTY_PARLOUR",
+        "ELEVATOR",
+        "EXCHANGE_FAC",
+        "WIFI",
+        "LAUNDRY_SVC",
+        "VALET_PARKING",
+        "HAIRDRESSER",
+        "AIR_CONDITIONING",
+        "HAIR_DRYER",
+        "NONSMOKING_RMS",
+        "PHONE-DIR_DIAL",
+        "ROOM_SERVICE",
+        "TELEVISION",
+        "FITNESS_CENTER"
+      ],
+      "media": [
+        {
+          "uri": "http://uat.multimediarepository.testing.amadeus.com/cmr/retrieve/hotel/F9906C88AEEA4079998AAB5631696FC6",
+          "category": "EXTERIOR"
+        }
+      ]
+    },
+    "available": true,
+    "offers": [
+      {
+        "id": "190E7E8FCD051D289E1E7DD4DE1A7F3163CEFC7D3D7615E2AB0D668FB663AA9E",
+        "rateCode": "RAC",
+        "room": {
+          "type": "XMI",
+          "typeEstimated": {
+            "category": "DELUXE_ROOM",
+            "beds": 1,
+            "bedType": "DOUBLE"
+          },
+          "description": {
+            "lang": "EN",
+            "text": "Marriott Senior Discount, 62 years and older va\nDeluxe Double/Double, 2 Double, Mini fridge, 33\n5sqft/30sqm, Wireless internet, for a fee, Coff"
+          }
+        },
+        "guests": {
+          "adults": 1
+        },
+        "price": {
+          "currency": "USD",
+          "base": "297.00",
+          "total": "345.33",
+          "variations": {
+            "changes": [
+              {
+                "startDate": "2019-06-18",
+                "endDate": "2019-06-19",
+                "base": "297.00"
+              }
+            ]
+          }
+        },
+        "policies": {
+          "cancellation": {
+            "deadline": "2019-06-16T23:59:00"
+          }
+        }
+      }
+    ],
+    "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/by-hotel?hotelId=BRSEASMB"
+  },
+  {
+    "type": "hotel-offers",
+    "hotel": {
+      "type": "hotel",
+      "hotelId": "WHSEAXBM",
+      "chainCode": "WH",
+      "dupeId": "700014179",
+      "name": "W HOTEL SEATTLE",
+      "rating": "5",
+      "cityCode": "SEA",
+      "latitude": 47.60683,
+      "longitude": -122.3336,
+      "hotelDistance": {
+        "distance": 0.5,
+        "distanceUnit": "KM"
+      },
+      "address": {
+        "lines": [
+          "1112 FOURTH AVENUE"
+        ],
+        "postalCode": "98101",
+        "cityName": "SEATTLE",
+        "countryCode": "US",
+        "stateCode": "WA"
+      },
+      "contact": {
+        "phone": "+1 206 264-6000",
+        "fax": "+1 206 264-6100",
+        "email": "wseattle.whatwhen@whotels.com"
+      },
+      "description": {
+        "lang": "en",
+        "text": "Soak up the vibrant scene in the Living Room Bar and get in the mix with our live music and DJ series before heading to a memorable dinner at TRACE. Offering inspired seasonal fare in an award-winning atmosphere, it's a not-to-be-missed culinary experience in downtown Seattle. Work it all off the next morning at FIT\u00ae, our state-of-the-art fitness center before wandering out to explore many of the area's nearby attractions, including Pike Place Market, Pioneer Square and the Seattle Art Museum. As always, we've got you covered during your time at W Seattle with our signature Whatever/Whenever\u00ae service - your wish is truly our command."
+      },
+      "amenities": [
+        "SERV_DOGS_ALWD",
+        "ACC_TOILETS",
+        "HANDRAIL_BTHRM",
+        "SAFE_DEP_BOX",
+        "24_HOUR_FRONT_DESK",
+        "24_HOUR_ROOM_SERVICE",
+        "ROOM_SERVICE",
+        "EXPRESS_CHECK_IN",
+        "EXPRESS_CHECK_OUT",
+        "LOUNGE",
+        "ICE_MACHINES",
+        "FLORIST",
+        "VALET_PARKING",
+        "CONCIERGE",
+        "EXCHANGE_FAC",
+        "WEDDING_SERVICES",
+        "CAR_RENTAL",
+        "GYM",
+        "RESTAURANT",
+        "HI_INTERNET",
+        "WIRELESS_CONNECTIVITY",
+        "ELEVATOR",
+        "PETS_ALLOWED",
+        "PHOTOCOPIER",
+        "PRINTER",
+        "BUSINESS_CENTER",
+        "MEETING_FACILITIES",
+        "INTERNET-HI_SPEED_IN_RM",
+        "WI-FI_IN_ROOM",
+        "NONSMOKING_RMS",
+        "TEA/COFFEE_MK_FACILITIES",
+        "ALARM_CLOCK",
+        "SAFE",
+        "MINIBAR",
+        "HAIR_DRYER",
+        "IRON/IRON_BOARD",
+        "CRIBS_AVAILABLE",
+        "ROLLAWAY_BEDS",
+        "VOICEMAIL_IN_ROOM",
+        "BATH",
+        "TELEVISION",
+        "CABLE_TELEVISION",
+        "REFRIGERATOR",
+        "AIR_CONDITIONING",
+        "FITNESS_CENTER",
+        "BOWLING",
+        "SCUBA_DIVING"
+      ],
+      "media": [
+        {
+          "uri": "http://uat.multimediarepository.testing.amadeus.com/cmr/retrieve/hotel/38650E0523E14F60ADFC4386CE2EFE0A",
+          "category": "EXTERIOR"
+        }
+      ]
+    },
+    "available": true,
+    "offers": [
+      {
+        "id": "B818AFA3FD30C6D92592D9C6F4A20F47A0D2449EDBAEC0A3BC1F17203D62ED23",
+        "rateCode": "RAC",
+        "rateFamilyEstimated": {
+          "code": "RAC",
+          "type": "P"
+        },
+        "room": {
+          "type": "REG",
+          "typeEstimated": {
+            "beds": 1,
+            "bedType": "KING"
+          },
+          "description": {
+            "lang": "EN",
+            "text": "Regular Rate\nSpectacular Ocean View, 1 King, Mini fridge, 35\n0sqft/32sqm, Living/sitting area, Wireless inte"
+          }
+        },
+        "guests": {
+          "adults": 1
+        },
+        "price": {
+          "currency": "USD",
+          "base": "359.00",
+          "total": "417.00",
+          "variations": {
+            "average": {
+              "base": "359.00"
+            },
+            "changes": [
+              {
+                "startDate": "2019-06-18",
+                "endDate": "2019-06-19",
+                "base": "359.00"
+              }
+            ]
+          }
+        },
+        "policies": {
+          "cancellation": {
+            "deadline": "2019-06-15T23:59:00"
+          }
+        }
+      }
+    ],
+    "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/by-hotel?hotelId=WHSEAXBM"
+  },
+  {
+    "type": "hotel-offers",
+    "hotel": {
+      "type": "hotel",
+      "hotelId": "HHSEA628",
+      "chainCode": "HH",
+      "dupeId": "700015783",
+      "name": "HILTON SEATTLE",
+      "rating": "3",
+      "cityCode": "SEA",
+      "latitude": 47.60945,
+      "longitude": -122.33278,
+      "hotelDistance": {
+        "distance": 0.7,
+        "distanceUnit": "KM"
+      },
+      "address": {
+        "lines": [
+          "1301 6TH AVENUE"
+        ],
+        "postalCode": "98101",
+        "cityName": "SEATTLE",
+        "countryCode": "US",
+        "stateCode": "WA"
+      },
+      "contact": {
+        "phone": "1-206-624-0500",
+        "fax": "1-206-624-9539"
+      },
+      "description": {
+        "lang": "en",
+        "text": "The hilton seattle is located just one block from the washington state convention and trade center in downtown seattle. The hotel is connected via underground concourse to rainier square shopping center- the 5th avenue theater and the convention center. The pike place market- the waterfront and pioneer square are just a short walk away. Each of the hilton*s guest rooms offers breathtaking views of the city skyline- surrounding mountain ranges- elliott bay- or puget sound- the city*s busy harbor. All rooms offer complimentary hbo and cable tv and include amenities such as honor bars- coffee makers- hair dryers- dual line telephones with data ports and voice mail. For guests desiring upgraded amenities- we offer executive level accommodations. The top of the hilton restaurant- located on the 29th- offers delicious continental cuisine with a spectacular view. Recreational amenities include a cardio workout room with a treadmill- stairmaster- and exercycle."
+      },
+      "amenities": [
+        "BUSINESS_CENTER",
+        "MEETING_ROOMS",
+        "RESTAURANT",
+        "DIS_PARKG",
+        "ADAPTED_PHONES",
+        "WIDE_ENTRANCE",
+        "WIDE_CORRIDORS",
+        "CAR_RENTAL",
+        "EXECUTIVE_FLR",
+        "GIFT_SHOP",
+        "LAUNDRY_SVC",
+        "PARKING",
+        "AIR_CONDITIONING",
+        "HAIR_DRYER",
+        "KITCHEN",
+        "MOVIE_CHANNELS",
+        "NONSMOKING_RMS",
+        "PHONE-DIR_DIAL",
+        "TELEVISION",
+        "FIRST_AID_STAF",
+        "INT_ROOM_ENTRY",
+        "EMERG_LIGHTING",
+        "FIRE_DETECTORS",
+        "EXTINGUISHERS",
+        "FIRE_SAFETY",
+        "GUARDED_PARKG",
+        "SAFE_DEP_BOX",
+        "SMOKE_DETECTOR",
+        "SPRINKLERS",
+        "BALLROOM",
+        "FITNESS_CENTER"
+      ],
+      "media": [
+        {
+          "uri": "http://uat.multimediarepository.testing.amadeus.com/cmr/retrieve/hotel/DE748FC63D1B40E89CB9F1EF275AC317",
+          "category": "EXTERIOR"
+        }
+      ]
+    },
+    "available": true,
+    "offers": [
+      {
+        "id": "84888A60D8EDA8B9BB00B0B269ED586ED9091AEE0637346C9A48FE4AE465FBE4",
+        "rateCode": "RAC",
+        "rateFamilyEstimated": {
+          "code": "BAR",
+          "type": "P"
+        },
+        "commission": {
+          "percentage": "10.00"
+        },
+        "room": {
+          "type": "D2D",
+          "typeEstimated": {
+            "category": "STANDARD_ROOM",
+            "beds": 2,
+            "bedType": "DOUBLE"
+          },
+          "description": {
+            "lang": "EN",
+            "text": "FLEXIBLE RATE\n2 DOUBLE BEDS\nOVERSIZED PILLOWS DUVET FRIDGE SAFE HD TV"
+          }
+        },
+        "guests": {
+          "adults": 1
+        },
+        "price": {
+          "currency": "USD",
+          "base": "398.00",
+          "total": "462.09",
+          "taxes": [
+            {
+              "code": "TOTAL_TAX",
+              "amount": "64.09",
+              "included": true
+            }
+          ],
+          "variations": {
+            "average": {
+              "base": "398.00"
+            },
+            "changes": [
+              {
+                "startDate": "2019-06-18",
+                "endDate": "2019-06-19",
+                "base": "398.00"
+              }
+            ]
+          }
+        },
+        "policies": {
+          "cancellation": {
+            "deadline": "2019-06-15T12:00:00"
+          }
+        }
+      }
+    ],
+    "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/by-hotel?hotelId=HHSEA628"
+  },
+  {
+    "type": "hotel-offers",
+    "hotel": {
+      "type": "hotel",
+      "hotelId": "SISEA460",
+      "chainCode": "SI",
+      "dupeId": "700116685",
+      "name": "SHERATON SEATTLE HOTEL",
+      "rating": "4",
+      "cityCode": "SEA",
+      "latitude": 47.61004,
+      "longitude": -122.33349,
+      "hotelDistance": {
+        "distance": 0.8,
+        "distanceUnit": "KM"
+      },
+      "address": {
+        "lines": [
+          "1400 SIXTH AVENUE"
+        ],
+        "postalCode": "98101",
+        "cityName": "SEATTLE",
+        "countryCode": "US",
+        "stateCode": "WA"
+      },
+      "contact": {
+        "fax": "+1 206 621-8441",
+        "phone": "+1 206 621-9000",
+        "email": "sheraton.seattle@sheraton.com"
+      },
+      "description": {
+        "lang": "en",
+        "text": "Located in the heart of downtown at 6th and Pike, the Sheraton Grand Seattle provides a gateway to the diverse sights and sounds of the Pacific Northwest. The Sheraton is adjacent to the Washington State Convention Center and within blocks of flagship shopping, local restaurants and bars, and iconic attractions including the Pike Place Market, the Space Needle and Chihuly Garden & Glass. Experience our multi-million-dollar transformation with all new guest rooms, an expanded Sheraton Club Lounge, and meeting and event space. Gather in our stylish new lobby and enjoy our private art collection featuring artworks by Northwest master artists while enjoying your favorite beverage from our modern new Starbucks. The Sheraton Grand features several dining options including Loulay Kitchen & Bar by celebrity chef Thierry Rautureau, the Chef in the Hat. For recreation, enjoy our state of the art fitness center and indoor swimming pool on the 35th floor with panoramic views of the city and Puget Sound."
+      },
+      "amenities": [
+        "EXECUTIVE_FLR",
+        "SERV_DOGS_ALWD",
+        "ACC_TOILETS",
+        "HANDRAIL_BTHRM",
+        "CONCIERGE",
+        "SAFE_DEP_BOX",
+        "24_HOUR_FRONT_DESK",
+        "ROOM_SERVICE",
+        "EXPRESS_CHECK_OUT",
+        "LOUNGE",
+        "VALET_PARKING",
+        "ICE_MACHINES",
+        "FLORIST",
+        "TRAVEL_AGENCY",
+        "COFFEE_SHOP",
+        "CAR_RENTAL",
+        "LAUNDRY_SVC",
+        "WEDDING_SERVICES",
+        "GYM",
+        "PARKING",
+        "SWIMMING_POOL",
+        "RESTAURANT",
+        "HI_INTERNET",
+        "FREE_INTERNET",
+        "ELEVATOR",
+        "PETS_ALLOWED",
+        "PHOTOCOPIER",
+        "PRINTER",
+        "BUSINESS_CENTER",
+        "MEETING_FACILITIES",
+        "INTERNET-HI_SPEED_IN_RM",
+        "WI-FI_IN_ROOM",
+        "NONSMOKING_RMS",
+        "TEA/COFFEE_MK_FACILITIES",
+        "ALARM_CLOCK",
+        "AIR_CONDITIONING",
+        "SAFE",
+        "HAIR_DRYER",
+        "IRON/IRON_BOARD",
+        "CRIBS_AVAILABLE",
+        "CABLE_TELEVISION",
+        "VOICEMAIL_IN_ROOM",
+        "TELEVISION",
+        "PHONE-DIR_DIAL",
+        "OUTLET_ADAPTERS",
+        "FITNESS_CENTER",
+        "BEACH",
+        "SCUBA_DIVING"
+      ],
+      "media": [
+        {
+          "uri": "http://uat.multimediarepository.testing.amadeus.com/cmr/retrieve/hotel/F1C97A20420C4FC7812E4EA96AECBF00",
+          "category": "EXTERIOR"
+        }
+      ]
+    },
+    "available": true,
+    "offers": [
+      {
+        "id": "3C747DB668BBE80E685C723EA767B19049B403CDE25B36C85294105BBC4C2E59",
+        "rateCode": "RAC",
+        "rateFamilyEstimated": {
+          "code": "RAC",
+          "type": "P"
+        },
+        "room": {
+          "type": "REG",
+          "typeEstimated": {
+            "beds": 2,
+            "bedType": "DOUBLE"
+          },
+          "description": {
+            "lang": "EN",
+            "text": "Regular Rate\n2 Double, Wired internet, for a fee, Coffee/tea\n maker"
+          }
+        },
+        "guests": {
+          "adults": 1
+        },
+        "price": {
+          "currency": "USD",
+          "total": "359.20",
+          "variations": {
+            "average": {
+              "total": "359.20"
+            }
+          }
+        },
+        "policies": {
+          "cancellation": {
+            "amount": "359.20",
+            "deadline": "2019-06-15T23:59:00"
+          }
+        }
+      }
+    ],
+    "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/by-hotel?hotelId=SISEA460"
+  },
+  {
+    "type": "hotel-offers",
+    "hotel": {
+      "type": "hotel",
+      "hotelId": "WVSEAMFP",
+      "chainCode": "WV",
+      "dupeId": "700048087",
+      "name": "MAYFLOWER PARK HOTEL",
+      "rating": "3",
+      "cityCode": "SEA",
+      "latitude": 47.61217,
+      "longitude": -122.33835,
+      "hotelDistance": {
+        "distance": 1.2,
+        "distanceUnit": "KM"
+      },
+      "address": {
+        "lines": [
+          "405 OLIVE WAY"
+        ],
+        "postalCode": "98101",
+        "cityName": "SEATTLE",
+        "countryCode": "US",
+        "stateCode": "WA"
+      },
+      "contact": {
+        "fax": "1-206-3826996",
+        "phone": "1-206-6238700"
+      },
+      "description": {
+        "lang": "en",
+        "text": "THERE ARE 161 NON-SMOKING GUEST ROOMS INCLUDING 28 LUXURY SUITES WITH KING AND QUEEN BEDS. ALL ROOMS HAVE DATAPORTS, COMPLIMENTARY HIGH SPEED INTERNET IS AVAILABLE IN ALL ROOMS. BUILT IN 1927, THE MAYFLOWER PARK HOTEL RETAINS THE AMBIANCE OF A BEAUTIFULLY RESTORED EUROPEAN BOUTIQUE HOTEL WITH ALL OF THE MODERN AMENITIES OF TODAY."
+      },
+      "amenities": [
+        "AUDIO-VIS_EQT",
+        "MEETING_ROOMS",
+        "TELECONFERENCE",
+        "BAR",
+        "RESTAURANT",
+        "HANDICAP_FAC",
+        "SERV_DOGS_ALWD",
+        "DIS_PARKG",
+        "ACC_RM_WCHAIR",
+        "ACC_WCHAIR",
+        "KIDS_WELCOME",
+        "ELEVATOR",
+        "INT_HOTSPOTS",
+        "LAUNDRY_SVC",
+        "PARKING",
+        "VALET_PARKING",
+        "LOUNGE",
+        "AIR_CONDITIONING",
+        "HAIR_DRYER",
+        "MOVIE_CHANNELS",
+        "NONSMOKING_RMS",
+        "PC_HOOKUP_INRM",
+        "PHONE-DIR_DIAL",
+        "ROOM_SERVICE",
+        "TELEVISION",
+        "WI-FI_IN_ROOM",
+        "FIRST_AID_STAF",
+        "INT_ROOM_ENTRY",
+        "EMERG_LIGHTING",
+        "FIRE_DETECTORS",
+        "EXTINGUISHERS",
+        "FIRE_SAFETY",
+        "GUARDED_PARKG",
+        "SAFE_DEP_BOX",
+        "SMOKE_DETECTOR",
+        "SPRINKLERS",
+        "FITNESS_CENTER"
+      ],
+      "media": [
+        {
+          "uri": "http://uat.multimediarepository.testing.amadeus.com/cmr/retrieve/hotel/89E26DC11EF2456E8EB0684AA6995880",
+          "category": "EXTERIOR"
+        }
+      ]
+    },
+    "available": true,
+    "offers": [
+      {
+        "id": "0EB836E4AA2271D95167BFBDC6DB4445686CEE75A5B9BF59F27E513447C51693",
+        "rateCode": "GOV",
+        "commission": {
+          "percentage": "10.0"
+        },
+        "room": {
+          "type": "C1Q",
+          "typeEstimated": {
+            "category": "STANDARD_ROOM",
+            "beds": 1,
+            "bedType": "QUEEN"
+          },
+          "description": {
+            "lang": "EN",
+            "text": "Federal Government Rate\nCLASSICS 1 QUEEN ROBES HIGH SPEED INTERNET\nID Required"
+          }
+        },
+        "guests": {
+          "adults": 1
+        },
+        "price": {
+          "currency": "USD",
+          "base": "257.00",
+          "total": "299.09",
+          "variations": {
+            "average": {
+              "base": "257.00"
+            },
+            "changes": [
+              {
+                "startDate": "2019-06-18",
+                "endDate": "2019-06-19",
+                "base": "257.00"
+              }
+            ]
+          }
+        },
+        "policies": {
+          "guarantee": {
+            "acceptedPayments": {
+              "creditCards": [
+                "AX",
+                "CB",
+                "DC",
+                "VI",
+                "JC",
+                "MC",
+                "DS"
+              ],
+              "methods": [
+                "CREDIT_CARD"
+              ]
+            }
+          },
+          "cancellation": {
+            "deadline": "2019-06-17T16:00:00"
+          }
+        }
+      }
+    ],
+    "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/by-hotel?hotelId=WVSEAMFP"
+  },
+  {
+    "type": "hotel-offers",
+    "hotel": {
+      "type": "hotel",
+      "hotelId": "WISEAWAS",
+      "chainCode": "WI",
+      "dupeId": "700013548",
+      "name": "WESTIN SEATTLE",
+      "rating": "4",
+      "cityCode": "SEA",
+      "latitude": 47.61295,
+      "longitude": -122.33777,
+      "hotelDistance": {
+        "distance": 1.2,
+        "distanceUnit": "KM"
+      },
+      "address": {
+        "lines": [
+          "1900 5TH AVENUE"
+        ],
+        "postalCode": "98101",
+        "cityName": "SEATTLE",
+        "countryCode": "US",
+        "stateCode": "WA"
+      },
+      "contact": {
+        "phone": "+1 206 728-1000",
+        "fax": "+1 206 728-2259",
+        "email": "seattle.info@westin.com"
+      },
+      "description": {
+        "lang": "en",
+        "text": "The Westin Seattle is the front door to downtown shopping, attractions, dining and much more. This ideal urban retreat is steps away from the Washington State Convention Center, Pike Place Market and Space Needle. Our unique design offers breathtaking views of the Northwest's beauty including Puget Sound, the Olympic and Cascade mountain ranges. Our 891 smoke-free and spacious guest rooms and suites are designed to provide ultimate comfort and tranquility for our guests. All guest rooms offer high-speed Internet access, flat screen televisions and the Heavenly\u00ae Bed and Heavenly\u00ae Bath. Visit Relish Burger Bistro, our contemporary venue featuring a modern twist on an American classic. The Westin Seattle is an unforgettable and unique experience for all its guests."
+      },
+      "amenities": [
+        "JOGGING_TRACK",
+        "SAUNA",
+        "SERV_DOGS_ALWD",
+        "HANDRAIL_BTHRM",
+        "24_HOUR_FRONT_DESK",
+        "ROOM_SERVICE",
+        "CONCIERGE",
+        "LOUNGE",
+        "GIFT_SHOP",
+        "ICE_MACHINES",
+        "FLORIST",
+        "SAFE_DEP_BOX",
+        "EXCHANGE_FAC",
+        "LAUNDRY_SVC",
+        "VALET_PARKING",
+        "24_HOUR_ROOM_SERVICE",
+        "COFFEE_SHOP",
+        "ATM/CASH_MACHINE",
+        "EXPRESS_CHECK_IN",
+        "EXPRESS_CHECK_OUT",
+        "CAR_RENTAL",
+        "WEDDING_SERVICES",
+        "GYM",
+        "PARKING",
+        "SWIMMING_POOL",
+        "RESTAURANT",
+        "HI_INTERNET",
+        "WIRELESS_CONNECTIVITY",
+        "ELEVATOR",
+        "PETS_ALLOWED",
+        "PHOTOCOPIER",
+        "PRINTER",
+        "BUSINESS_CENTER",
+        "MEETING_FACILITIES",
+        "INTERNET-HI_SPEED_IN_RM",
+        "WI-FI_IN_ROOM",
+        "NONSMOKING_RMS",
+        "ALARM_CLOCK",
+        "SAFE",
+        "MINIBAR",
+        "HAIR_DRYER",
+        "IRON/IRON_BOARD",
+        "CRIBS_AVAILABLE",
+        "ROLLAWAY_BEDS",
+        "CABLE_TELEVISION",
+        "TELEVISION",
+        "VOICEMAIL_IN_ROOM",
+        "CORDLESS_PHONE",
+        "TEA/COFFEE_MK_FACILITIES",
+        "AIR_CONDITIONING",
+        "OUTLET_ADAPTERS",
+        "FITNESS_CENTER",
+        "BEACH",
+        "BOWLING",
+        "HORSE_RIDING",
+        "VOLLEYBALL"
+      ],
+      "media": [
+        {
+          "uri": "http://uat.multimediarepository.testing.amadeus.com/cmr/retrieve/hotel/95508E76582640B99C7CCD9552A8ADB0",
+          "category": "EXTERIOR"
+        }
+      ]
+    },
+    "available": true,
+    "offers": [
+      {
+        "id": "EBD2AAB8B460B7D35B9E6972957DABDC98EF396F3B2B8EFFA75BF2224CAB6FE6",
+        "rateCode": "MAJ",
+        "rateFamilyEstimated": {
+          "code": "FAM",
+          "type": "P"
+        },
+        "room": {
+          "type": "XXF",
+          "typeEstimated": {
+            "category": "FAMILY_ROOM",
+            "beds": 2,
+            "bedType": "DOUBLE"
+          },
+          "description": {
+            "lang": "EN",
+            "text": "Family Package 25pct, kids meals, 12 and under, see Rate Rules\nDeluxe City View, 2 Double, 325sqft/29sqm, Wire\nless internet, for a fee, Coffee/tea maker"
+          }
+        },
+        "guests": {
+          "adults": 1
+        },
+        "price": {
+          "currency": "USD",
+          "base": "319.00",
+          "total": "370.76",
+          "variations": {
+            "average": {
+              "base": "319.00"
+            },
+            "changes": [
+              {
+                "startDate": "2019-06-18",
+                "endDate": "2019-06-19",
+                "base": "319.00"
+              }
+            ]
+          }
+        },
+        "policies": {
+          "cancellation": {
+            "deadline": "2019-06-15T23:59:00"
+          }
+        }
+      }
+    ],
+    "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/by-hotel?hotelId=WISEAWAS"
+  },
+  {
+    "type": "hotel-offers",
+    "hotel": {
+      "type": "hotel",
+      "hotelId": "XVSEADTS",
+      "chainCode": "XV",
+      "dupeId": "700110529",
+      "name": "SPRINGHILL STES DWTN MARRIOTT",
+      "rating": "2",
+      "cityCode": "SEA",
+      "latitude": 47.6175,
+      "longitude": -122.3297,
+      "hotelDistance": {
+        "distance": 1.6,
+        "distanceUnit": "KM"
+      },
+      "address": {
+        "lines": [
+          "1800 YALE AVENUE"
+        ],
+        "postalCode": "98101",
+        "cityName": "SEATTLE",
+        "countryCode": "US",
+        "stateCode": "WA"
+      },
+      "contact": {
+        "phone": "1-206-2540500",
+        "fax": "1-206-2540990"
+      },
+      "amenities": [
+        "BUSINESS_CENTER",
+        "CONVENTION_CTR",
+        "MEETING_ROOMS",
+        "ICE_MACHINES",
+        "RESTAURANT",
+        "HANDICAP_FAC",
+        "ACC_TOILETS",
+        "SERV_DOGS_ALWD",
+        "HANDRAIL_BTHRM",
+        "ELEVATOR",
+        "WIFI",
+        "LAUNDRY_SVC",
+        "SAUNA",
+        "VALET_PARKING",
+        "SWIMMING_POOL",
+        "AIR_CONDITIONING",
+        "HAIR_DRYER",
+        "NONSMOKING_RMS",
+        "PHONE-DIR_DIAL",
+        "TELEVISION",
+        "SAFE_DEP_BOX",
+        "FITNESS_CENTER"
+      ],
+      "media": [
+        {
+          "uri": "http://uat.multimediarepository.testing.amadeus.com/cmr/retrieve/hotel/837F70A10D5A4DDE99964EC44743A02B",
+          "category": "EXTERIOR"
+        }
+      ]
+    },
+    "available": true,
+    "offers": [
+      {
+        "id": "A42A46BE0058EE93CE7DAA0335B2789425930EAA7020852420AB595E467CCCFC",
+        "rateCode": "S9R",
+        "rateFamilyEstimated": {
+          "code": "SRS",
+          "type": "C"
+        },
+        "room": {
+          "type": "XMI",
+          "typeEstimated": {
+            "category": "STANDARD_ROOM",
+            "beds": 1,
+            "bedType": "KING"
+          },
+          "description": {
+            "lang": "EN",
+            "text": "Marriott Senior Discount, 62 years and older valid ID required\n1 King, Sofa bed, Mini fridge, Microwave, 336sq\nft/30sqm-406sqft/37sqm, Living/sitting area, Wi"
+          }
+        },
+        "guests": {
+          "adults": 1
+        },
+        "price": {
+          "currency": "USD",
+          "base": "254.00",
+          "total": "295.62",
+          "variations": {
+            "average": {
+              "base": "254.00"
+            },
+            "changes": [
+              {
+                "startDate": "2019-06-18",
+                "endDate": "2019-06-19",
+                "base": "254.00"
+              }
+            ]
+          }
+        },
+        "policies": {
+          "cancellation": {
+            "deadline": "2019-06-16T23:59:00"
+          }
+        }
+      }
+    ],
+    "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/by-hotel?hotelId=XVSEADTS"
+  },
+  {
+    "type": "hotel-offers",
+    "hotel": {
+      "type": "hotel",
+      "hotelId": "HYSEASEA",
+      "chainCode": "HY",
+      "dupeId": "700155940",
+      "name": "HYATT PLACE SEATTLE DOWNTOWN",
+      "rating": "2",
+      "cityCode": "SEA",
+      "latitude": 47.61899,
+      "longitude": -122.34482,
+      "hotelDistance": {
+        "distance": 2.1,
+        "distanceUnit": "KM"
+      },
+      "address": {
+        "lines": [
+          "110 6th Ave North",
+          "7"
+        ],
+        "postalCode": "98109",
+        "cityName": "SEATTLE",
+        "countryCode": "US",
+        "stateCode": "WA"
+      },
+      "contact": {
+        "phone": "1-206-441-6041",
+        "fax": "1-206-441-6042"
+      },
+      "description": {
+        "lang": "en",
+        "text": "Guest rooms feature contemporary decor with stylish  furnishings including the Hyatt Grand beds, state-of-the-art media and work center with a high-definition 42-inch flat panel HDTV that  easily integrates with laptops, a  cozy corner sofa-sleeper."
+      },
+      "amenities": [
+        "AUDIO-VIS_EQT",
+        "BUSINESS_CENTER",
+        "MEETING_ROOMS",
+        "COFFEE_SHOP",
+        "HANDICAP_FAC",
+        "ACC_BATHS",
+        "ACC_BATH_CTRLS",
+        "ACC_LIGHT_SW",
+        "ACC_ELEVATORS",
+        "SERV_DOGS_ALWD",
+        "DIS_PARKG",
+        "DIS_EMERG_PLAN",
+        "HANDRAIL_BTHRM",
+        "ADAPTED_PHONES",
+        "ADAPT_RM_DOORS",
+        "ACC_RM_WCHAIR",
+        "ACC_WCHAIR",
+        "WIDE_ENTRANCE",
+        "WIDE_CORRIDORS",
+        "WIDE_REST_ENT",
+        "ADAPT_BATHROOM",
+        "ELEVATOR",
+        "INT_HOTSPOTS",
+        "FREE_INTERNET",
+        "WIFI",
+        "LAUNDRY_SVC",
+        "PARKING",
+        "LOUNGE",
+        "GROUP_RATES",
+        "SWIMMING_POOL",
+        "AIR_CONDITIONING",
+        "HAIR_DRYER",
+        "NONSMOKING_RMS",
+        "TELEVISION",
+        "WI-FI_IN_ROOM",
+        "INT_ROOM_ENTRY",
+        "EMERG_LIGHTING",
+        "FIRE_DETECTORS",
+        "EXTINGUISHERS",
+        "FIRE_SAFETY",
+        "GUARDED_PARKG",
+        "RESTRIC_RM_ACC",
+        "SAFE_DEP_BOX",
+        "SMOKE_DETECTOR",
+        "SPRINKLERS",
+        "VIDEO_SURVEIL",
+        "FITNESS_CENTER"
+      ],
+      "media": [
+        {
+          "uri": "http://pdt.multimediarepository.testing.amadeus.com/cmr/retrieve/hotel/F0ECFB9913A84FAFA6AC5CD2432158BB",
+          "category": "EXTERIOR"
+        }
+      ]
+    },
+    "available": true,
+    "offers": [
+      {
+        "id": "4150067491DD5F4AA6B3B91BB2188A9591B6936AE20395F71222B70F6293B406",
+        "rateCode": "***",
+        "commission": {
+          "percentage": "10.00"
+        },
+        "room": {
+          "type": "KNG",
+          "typeEstimated": {
+            "category": "STANDARD_ROOM",
+            "beds": 1,
+            "bedType": "KING"
+          },
+          "description": {
+            "lang": "EN",
+            "text": "Advance Purchase King Bed\nHYATT GRAND BED: COZY CORNER SOFA-SLEEPER"
+          }
+        },
+        "guests": {
+          "adults": 1
+        },
+        "price": {
+          "currency": "USD",
+          "base": "341.05",
+          "total": "396.25",
+          "variations": {
+            "average": {
+              "base": "341.05"
+            },
+            "changes": [
+              {
+                "startDate": "2019-06-18",
+                "endDate": "2019-06-19",
+                "base": "341.05"
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/by-hotel?hotelId=HYSEASEA"
+  },
+  {
+    "type": "hotel-offers",
+    "hotel": {
+      "type": "hotel",
+      "hotelId": "HXSEAGA4",
+      "chainCode": "HX",
+      "dupeId": "700036082",
+      "name": "HAMPTON INN SEATTLE DWNTWN",
+      "rating": "3",
+      "cityCode": "SEA",
+      "latitude": 47.62563,
+      "longitude": -122.34729,
+      "hotelDistance": {
+        "distance": 2.8,
+        "distanceUnit": "KM"
+      },
+      "address": {
+        "lines": [
+          "700 FIFTH AVE NORTH"
+        ],
+        "postalCode": "98109",
+        "cityName": "SEATTLE",
+        "countryCode": "US",
+        "stateCode": "WA"
+      },
+      "contact": {
+        "phone": "1-206-282-7700",
+        "fax": "1-206-282-0899"
+      },
+      "amenities": [
+        "BUSINESS_CENTER",
+        "ADAPTED_PHONES",
+        "WIDE_ENTRANCE",
+        "GIFT_SHOP",
+        "JACUZZI",
+        "LAUNDRY_SVC",
+        "PARKING",
+        "AIR_CONDITIONING",
+        "HAIR_DRYER",
+        "KITCHEN",
+        "NONSMOKING_RMS",
+        "PC_HOOKUP_INRM",
+        "PHONE-DIR_DIAL",
+        "TELEVISION",
+        "FIRST_AID_STAF",
+        "INT_ROOM_ENTRY",
+        "EMERG_LIGHTING",
+        "FIRE_DETECTORS",
+        "EXTINGUISHERS",
+        "FIRE_SAFETY",
+        "GUARDED_PARKG",
+        "RESTRIC_RM_ACC",
+        "SAFE_DEP_BOX",
+        "SMOKE_DETECTOR",
+        "SPRINKLERS",
+        "FITNESS_CENTER"
+      ],
+      "media": [
+        {
+          "uri": "http://uat.multimediarepository.testing.amadeus.com/cmr/retrieve/hotel/6C64E4C0371E43E59ABF6D131DEF10D6",
+          "category": "EXTERIOR"
+        }
+      ]
+    },
+    "available": true,
+    "offers": [
+      {
+        "id": "58FEE2FF55CEFE5BBC2C59CCADB9BD31F93D7381A743124194BD75351419F0D8",
+        "rateCode": "RAC",
+        "rateFamilyEstimated": {
+          "code": "BAR",
+          "type": "P"
+        },
+        "commission": {
+          "percentage": "10.0"
+        },
+        "boardType": "BREAKFAST",
+        "room": {
+          "type": "B1K",
+          "typeEstimated": {
+            "category": "STANDARD_ROOM",
+            "beds": 1,
+            "bedType": "KING"
+          },
+          "description": {
+            "lang": "EN",
+            "text": "BEST AVAILABLE RATE\n1 KING BED NONSMOKING\nHDTV/FREE WI-FI/HOT BREAKFAST INCLUDED"
+          }
+        },
+        "guests": {
+          "adults": 1
+        },
+        "price": {
+          "currency": "USD",
+          "total": "382.32",
+          "variations": {
+            "average": {
+              "total": "382.32"
+            }
+          }
+        },
+        "policies": {
+          "cancellation": {
+            "deadline": "2019-06-15T00:00:00"
+          }
+        }
+      }
+    ],
+    "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/by-hotel?hotelId=HXSEAGA4"
+  },
+  {
+    "type": "hotel-offers",
+    "hotel": {
+      "type": "hotel",
+      "hotelId": "CYSEACDC",
+      "chainCode": "CY",
+      "dupeId": "700065690",
+      "name": "COURTYARD LAKE UNION MARRIOTT",
+      "rating": "4",
+      "cityCode": "SEA",
+      "latitude": 47.62757,
+      "longitude": -122.33995,
+      "hotelDistance": {
+        "distance": 2.8,
+        "distanceUnit": "KM"
+      },
+      "address": {
+        "lines": [
+          "925 WESTLAKE AVE N"
+        ],
+        "postalCode": "98109",
+        "cityName": "SEATTLE",
+        "countryCode": "US",
+        "stateCode": "WA"
+      },
+      "contact": {
+        "phone": "1-206-2130100",
+        "fax": "1-206-2130101"
+      },
+      "amenities": [
+        "BUSINESS_CENTER",
+        "CONVENTION_CTR",
+        "MEETING_ROOMS",
+        "ICE_MACHINES",
+        "RESTAURANT",
+        "HANDICAP_FAC",
+        "ACC_TOILETS",
+        "SERV_DOGS_ALWD",
+        "DIS_PARKG",
+        "HANDRAIL_BTHRM",
+        "CAR_RENTAL",
+        "ELEVATOR",
+        "WIFI",
+        "LAUNDRY_SVC",
+        "SWIMMING_POOL",
+        "AIR_CONDITIONING",
+        "HAIR_DRYER",
+        "NONSMOKING_RMS",
+        "PHONE-DIR_DIAL",
+        "TELEVISION",
+        "SAFE_DEP_BOX",
+        "FITNESS_CENTER"
+      ],
+      "media": [
+        {
+          "uri": "http://uat.multimediarepository.testing.amadeus.com/cmr/retrieve/hotel/F46E7B8B390B4DF588416369EC9B7746",
+          "category": "EXTERIOR"
+        }
+      ]
+    },
+    "available": true,
+    "offers": [
+      {
+        "id": "500236ABC3E104749388A5D115BE8F66462F4B3E2F0F6800D4380EB7F29737BD",
+        "rateCode": "S9R",
+        "rateFamilyEstimated": {
+          "code": "SRS",
+          "type": "C"
+        },
+        "room": {
+          "type": "XMI",
+          "typeEstimated": {
+            "beds": 2,
+            "bedType": "DOUBLE"
+          },
+          "description": {
+            "lang": "EN",
+            "text": "Marriott Senior Discount, 62 years and older valid ID required\n2 Double, Mini fridge, 338sqft/30sqm, Wireless \ninternet, complimentary, Wired internet, compli"
+          }
+        },
+        "guests": {
+          "adults": 1
+        },
+        "price": {
+          "currency": "USD",
+          "base": "348.00",
+          "total": "404.29",
+          "variations": {
+            "average": {
+              "base": "348.00"
+            },
+            "changes": [
+              {
+                "startDate": "2019-06-18",
+                "endDate": "2019-06-19",
+                "base": "348.00"
+              }
+            ]
+          }
+        },
+        "policies": {
+          "cancellation": {
+            "deadline": "2019-06-15T23:59:00"
+          }
+        }
+      }
+    ],
+    "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/by-hotel?hotelId=CYSEACDC"
+  }
+]

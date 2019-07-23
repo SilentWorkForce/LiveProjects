@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+
+{% block head %}
+{% block title %}APOD{% endblock %}
+
+{% endblock head %}
+    
+
+    
+<link rel="stylesheet" href="styles.css">
+
+{% block content %}
+{% include "nav.html" %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+ 
+          <meta charset="utf-8">
+           
+    <section class="hero is-primary">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    <br>
+                    Today's Astronomy Picture of the Day
+                </h1>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+        <div class="container" style="padding-bottom:2%;">
+            <h2 style="text-align:center">
+               {{title}}
+            </h2> 
+                    <div class="iframe-apod-container">           
+                        <img id="apod_img_id" />
+                        <iframe id="apod_vid_id" type="text/html" frameborder="0" style="height: rem20;"></iframe>
+                    <p id="copyright"></p>
+                </div>
+            <div class="card">
+            <div class="card" style="padding:3%;">
+                <h3>About</h3>
+                <br>
+                {{desc}}
+            </div>
+        </div>
+    </section>
+
+    <section class="hero is-primary">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    <br>
+                    The Next 5 Rocket Launches
+                </h1>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container" style="padding-bottom:2%;">
+            <h2 style="text-align:center">
+               Here is some data about the next five rocket launches around the world
+            </h2> <br>
+            <h4></h4>
+            
+            <div class="card" style="padding:3%;">
+                <p>
+                    {% for key, value in launches_data.items %}
+                        
+                            <p>
+                                <h4> {{ value.name }} </h4>
+                                <br>
+                                Launch Service Provider: {{ value.agency }}
+                                <br>
+                                Launch Location: {{ value.location }}
+                                <br>
+                                Launch Window Between: {{ value.windowstart }} - {{value.windowend}} 
+                                <br><br>
+                            </p>
+                          
+                    {% endfor %}            
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <script type="text/javascript">
+        //pass api url to variable url
+        var url = "{{url}}";
+
+        $.ajax({
+        url: url,
+        success: function(result){
+        //if statement to check if copyright is present on picture    
+        if("copyright" in result) {
+            //if copyright present on media, add copyright and credit source
+            $("#copyright").text("Image Credits: " + result.copyright);
+        }
+        else {
+            //if no copyright present, add copyright and add public domain notification
+            $("#copyright").text("Image Credits: " + "Public Domain");
+        }
+        
+        //check if media type is video or picture
+        if(result.media_type == "video") {
+        //if media is a video, change css to not display an image at css/html id "#apod_img_id" and create link to show media at css/html id "apod_vid_id"      
+            $("#apod_img_id").css("display", "none"); 
+            $("#apod_vid_id").attr("src", result.url);
+        }
+        else {
+        //if media is a picture, change css to not display a video at css/html id "#apod_vid_id" and create link to show media at css/html id "apod_img_id"
+            $("#apod_vid_id").css("display", "none"); 
+            $("#apod_img_id").attr("src", result.url);
+        }
+        }
+        });
+    </script>    
+{% endblock %}

@@ -1,0 +1,432 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+{% include 'nav.html' %}
+<header class="header">
+    <h2 class="text-left">Manage Profile</h2>
+    <div class="row profile-row">
+        <div class="default-margin" id="profile-column"> 
+            <h3 id="profile-title">{{ user.username }}</h3> 
+            {% if user.userprofile.image %}
+                <img class="profile-image img-fluid float-left" id="prof-pic" src="{{ user.userprofile.image.url }}" width="166" height="141"/>
+            {% else %}
+                <img class="float-left" id="prof-pic" src="../static/img/blank-profile.png" width="166" height="141" alt="Your Name Here" />
+            {% endif %}
+        </div>
+        <div class="col-md text-left">
+            <div class="content">
+                <ul class="list-unstyled">
+                    <li> 
+                        <form style="font-size: 13px;"id="upload" method="post" enctype = "multipart/form-data">
+                            <h4>You can upload or change your profile image here:</h4><br>
+                            <div class="d-block">
+                                {% csrf_token %}
+                                <label class="btn default-button btn-file">Choose File
+                                    <span style="display: none;">{{ form.image }}</span>
+                                </label>
+                            </div>
+                        </form></li><br>       
+                    <li><i class="fas fa-map-marker-alt"></i><span class="sr-only">Location:</span> Your location here</li>
+                    <li><i class="fas fa-envelope"></i><span class="sr-only">Email:</span><a href="#"> Youremail@email.com</a></li>
+                    <li><i class="fas fa-link"></i><span class="sr-only">Website:</span><a href="#"> https://www.yourwebsite.com</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md text-right">
+            <h3>General</h3>
+            <!--Button to toggle auto-geolocation-->
+            <div>
+                <h4 class="d-inline">Retrieve my location automatically</h4>
+                <label class="switch">
+                <input type="checkbox" id="geo-button" method="post" name="geo" value="geo" {% if tracking == 1 %}checked{% endif %}>
+                <span class="slider slider-green round"></span>
+                </label>
+            </div>
+            <div>
+                <h4 class="d-inline">Notices</h4>
+                <label class="switch">
+                <input type="checkbox">
+                <span class="slider slider-green round"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+</header>
+
+<h2 class="text-left">Manage Apps</h2>
+<div class="sections-wrapper default-margin">
+    <div class="content" id="manage-apps">
+        <!--App Control-->
+        <div class="flex-container icon-row">
+            <div class="col-sm icon-border">
+                <div class="row">
+                    <div class="col-sm-1">
+                        <i class="fas fa-comments fa-5x"></i>
+                    </div>
+                    <div class="col-sm d-block pr-3 text-right">
+                        <div>
+                        <h4 class="inline-green">Off-On </h4><label class="switch">
+                            <input type="checkbox">
+                            <span class="slider slider-green round"></span>
+                        </label>
+                        </div>
+                        <div>
+                            <h4 class="inline-green">Shared-Private </h4><label class="switch">
+                                <input type="checkbox">
+                                <span class="slider slider-green round"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <p>Send and receive messages from your friends on DataScrape.  All messages can be reviewed in your personal inbox.</p>
+                    <div class="text-right">
+                        <p class="inline-green">Feature 1 </p><label class="switch">
+                            <input type="checkbox">
+                            <span class="slider slider-green round"></span>
+                        </label>
+                    </div>
+                    <div class="text-right">
+                        <p class="inline-green">Feature 2 </p><label class="switch">
+                            <input type="checkbox">
+                            <span class="slider slider-green round"></span>
+                        </label>
+                    </div>
+                    <br>
+                    <p class="contributor">App Contributors:</p>
+                    <p class="contributor">Mr. Web Dev, Miss Pretty Python</p>
+                </div>
+            </div>
+            <div class="col-sm icon-border">
+                <div class="row">
+                    <div class="col-sm-1">
+                        <i class="fas fa-bullhorn fa-5x"></i>
+                    </div>
+                    <div class="col-sm d-block pr-3 text-right">
+                        <div>
+                        <h4 class="inline-green">Off-On </h4><label class="switch">
+                            <input type="checkbox">
+                            <span class="slider slider-green round"></span>
+                        </label>
+                        </div>
+                        <div>
+                            <h4 class="inline-green">Shared-Private </h4><label class="switch">
+                                <input type="checkbox">
+                                <span class="slider slider-green round"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <p>Get the latest headlines right here!</p>
+                    <div class="text-right">
+                        <p class="inline-green">Feature 1 </p><label class="switch">
+                            <input type="checkbox">
+                            <span class="slider slider-green round"></span>
+                        </label>
+                    </div>
+                    <div class="text-right">
+                        <p class="inline-green">Feature 2 </p><label class="switch">
+                            <input type="checkbox">
+                            <span class="slider slider-green round"></span>
+                        </label>
+                    </div>
+                    <br>
+                    <p class="contributor">App Contributors:</p>
+                    <p class="contributor">Mr. Web Dev, Miss Pretty Python</p>
+                </div>
+            </div>
+            <div class="col-sm icon-border">
+                <div class="row">
+                    <div class="col-sm-1">
+                        <i class="fas fa-road fa-5x"></i>
+                    </div>
+                    <div class="col-sm d-block pr-3 text-right">
+                        <div>
+                        <h4 class="inline-blue">Off-On </h4><label class="switch">
+                            <input type="checkbox">
+                            <span class="slider slider-blue round"></span>
+                        </label>
+                        </div>
+                        <div>
+                            <h4 class="inline-blue">Shared-Private </h4><label class="switch">
+                                <input type="checkbox">
+                                <span class="slider slider-blue round"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <p>Get directions from anywhere to anywhere, and in addtion, be prepared for where the traffic is heaviest.</p>
+                    <div class="text-right">
+                        <p class="inline-blue">Feature 1 </p><label class="switch">
+                            <input type="checkbox">
+                            <span class="slider slider-blue round"></span>
+                        </label>
+                    </div>
+                    <div class="text-right">
+                        <p class="inline-blue">Feature 2 </p><label class="switch">
+                            <input type="checkbox">
+                            <span class="slider slider-blue round"></span>
+                        </label>
+                    </div>
+                    <br>
+                    <p class="contributor">App Contributors:</p>
+                    <p class="contributor">Mr. Web Dev, Miss Pretty Python</p>
+                </div>
+            </div>
+            <div class="col-sm icon-border">
+                <div class="row">
+                    <div class="col-sm-1">
+                        <i class="fas fa-ticket-alt fa-5x"></i>
+                    </div>
+                    <div class="col-sm d-block pr-3 text-right">
+                        <div>
+                        <h4 class="inline-blue">Off-On </h4><label class="switch">
+                            <input type="checkbox">
+                            <span class="slider slider-blue round"></span>
+                        </label>
+                        </div>
+                        <div>
+                            <h4 class="inline-blue">Shared-Private </h4><label class="switch">
+                                <input type="checkbox">
+                                <span class="slider slider-blue round"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <p>Here you can get the titles of the latest top box office movies.</p>
+                    <div class="text-right">
+                        <p class="inline-blue">Feature 1 </p><label class="switch">
+                            <input type="checkbox">
+                            <span class="slider slider-blue round"></span>
+                        </label>
+                    </div>
+                    <div class="text-right">
+                        <p class="inline-blue">Feature 2 </p><label class="switch">
+                            <input type="checkbox">
+                            <span class="slider slider-blue round"></span>
+                        </label>
+                    </div>
+                    <br>
+                    <p class="contributor">App Contributors:</p>
+                    <p class="contributor">Mr. Web Dev, Miss Pretty Python</p>
+                </div>
+            </div>
+            <div class="col-sm icon-border">
+                <div class="row">
+                    <div class="col-sm-1">
+                        <i class="fas fa-podcast fa-5x"></i>
+                    </div>
+                    <div class="col-sm d-block pr-3 text-right">
+                        <div>
+                        <h4 class="inline-blue">Off-On </h4><label class="switch">
+                            <input type="checkbox">
+                            <span class="slider slider-blue round"></span>
+                        </label>
+                        </div>
+                        <div>
+                            <h4 class="inline-blue">Shared-Private </h4><label class="switch">
+                                <input type="checkbox">
+                                <span class="slider slider-blue round"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <p>Wanna to hear the latest analalyses of current events? Or maybe an account of the newest scientific discoveries? Whatever topic you're fascinated with, you can be sure you will find a podcast you like.</p>
+                    <div class="text-right">
+                        <p class="inline-blue">Feature 1 </p><label class="switch">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <div class="text-right">
+                        <p class="inline-blue">Feature 2 </p><label class="switch">
+                            <input type="checkbox">
+                            <span class="slider slider-blue round"></span>
+                        </label>
+                    </div>
+                    <br>
+                    <p class="contributor">App Contributors:</p>
+                    <p class="contributor">Mr. Web Dev, Miss Pretty Python</p>
+                </div>
+            </div>
+            <div class="col-sm icon-border">
+                <div class="row">
+                    <div class="col-sm-1">
+                        <i class="fas fa-space-shuttle fa-5x"></i>
+                    </div>
+                    <div class="col-sm d-block pr-3 text-right">
+                        <div>
+                        <h4 class="inline-blue">Off-On </h4><label class="switch">
+                            <input type="checkbox">
+                            <span class="slider slider-blue round"></span>
+                        </label>
+                        </div>
+                        <div>
+                            <h4 class="inline-blue">Shared-Private </h4><label class="switch">
+                                <input type="checkbox">
+                                <span class="slider slider-blue round"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <p>NASA</p>
+                    <div class="text-right">
+                        <p class="inline-blue">Feature 1 </p><label class="switch">
+                            <input type="checkbox">
+                            <span class="slider slider-blue round"></span>
+                        </label>
+                    </div>
+                    <div class="text-right">
+                        <p class="inline-blue">Feature 2 </p><label class="switch">
+                            <input type="checkbox">
+                            <span class="slider slider-blue round"></span>
+                        </label>
+                    </div>
+                    <br>
+                    <p class="contributor">App Contributors:</p>
+                    <p class="contributor">Mr. Web Dev, Miss Pretty Python</p>
+                </div>
+            </div>
+            <div class="col-sm icon-border">
+                <div class="row">
+                    <div class="col-sm-1">
+                        <i class="fas fa-guitar fa-5x"></i>
+                    </div>
+                    <div class="col-sm d-block pr-3 text-right">
+                        <div>
+                        <h4 class="inline-blue">Off-On </h4><label class="switch">
+                            <input type="checkbox">
+                            <span class="slider slider-blue round"></span>
+                        </label>
+                        </div>
+                        <div>
+                            <h4 class="inline-blue">Shared-Private </h4><label class="switch">
+                                <input type="checkbox">
+                                <span class="slider slider-blue round"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <p>Check if your favorite bands are playing near you!</p>
+                    <div class="text-right">
+                        <p class="inline-blue">Feature 1 </p><label class="switch">
+                            <input type="checkbox">
+                            <span class="slider slider-blue round"></span>
+                        </label>
+                    </div>
+                    <div class="text-right">
+                        <p class="inline-blue">Feature 2 </p><label class="switch">
+                            <input type="checkbox">
+                            <span class="slider slider-blue round"></span>
+                        </label>
+                    </div>
+                    <br>
+                    <p class="contributor">App Contributors:</p>
+                    <p class="contributor">Mr. Web Dev, Miss Pretty Python</p>
+                </div>
+            </div>
+            <div class="col-sm icon-border">
+                <div class="row">
+                    <div class="col-sm-1">
+                        <i class="fas fa-shopping-cart fa-5x"></i>
+                    </div>
+                    <div class="col-sm d-block pr-3 text-right">
+                        <div>
+                        <h4 class="inline-blue">Off-On </h4><label class="switch">
+                            <input type="checkbox">
+                            <span class="slider slider-blue round"></span>
+                        </label>
+                        </div>
+                        <div>
+                            <h4 class="inline-blue">Shared-Private </h4><label class="switch">
+                                <input type="checkbox">
+                                <span class="slider slider-blue round"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <p>Keep track of all those hot items on Craigslist.</p>
+                    <div class="text-right">
+                        <p class="inline-blue">Feature 1 </p><label class="switch">
+                            <input type="checkbox">
+                            <span class="slider slider-blue round"></span>
+                        </label>
+                    </div>
+                    <div class="text-right">
+                        <p class="inline-blue">Feature 2 </p><label class="switch">
+                            <input type="checkbox">
+                            <span class="slider slider-blue round"></span>
+                        </label>
+                    </div>
+                    <br>
+                    <p class="contributor">App Contributors:</p>
+                    <p class="contributor">Mr. Web Dev, Miss Pretty Python</p>
+                </div>
+            </div>
+            <div class="col-sm icon-border">
+                <div class="row">
+                    <div class="col-sm-1">
+                        <i class="fas fa-cloud-sun fa-5x"></i>
+                    </div>
+                    <div class="col-sm d-block pr-3 text-right">
+                        <div>
+                        <h4 class="inline-blue">Off-On </h4><label class="switch">
+                            <input type="checkbox">
+                            <span class="slider slider-blue round"></span>
+                        </label>
+                        </div>
+                        <div>
+                            <h4 class="inline-blue">Shared-Private </h4><label class="switch">
+                                <input type="checkbox">
+                                <span class="slider slider-blue round"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <p>Get an accurate weather forecast, and stay updated on any alerts, watches, or warnings in your area.</p>
+                    <div class="text-right">
+                        <p class="inline-blue">Feature 1 </p><label class="switch">
+                            <input type="checkbox">
+                            <span class="slider slider-blue round"></span>
+                        </label>
+                    </div>
+                    <div class="text-right">
+                        <p class="inline-blue">Feature 2 </p><label class="switch">
+                            <input type="checkbox">
+                            <span class="slider slider-blue round"></span>
+                        </label>
+                    </div>
+                    <br>
+                    <p class="contributor">App Contributors:</p>
+                    <p class="contributor">Mr. Web Dev, Miss Pretty Python</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    window.onload = function() {
+        //Submits input when file is changed
+        $(document).on('change', ':file', function() {
+            $("#upload").submit();
+        });
+        //Save user preference when user clicks button
+        $('#geo-button').on('change', function(){
+            change_preferences();
+        })
+    };
+</script>
+
+{% endblock %}

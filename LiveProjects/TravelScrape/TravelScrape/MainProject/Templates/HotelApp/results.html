@@ -1,0 +1,23 @@
+
+
+    {% block search_results %}
+        <div id="results">
+            {% for result in results %}
+            <div class="container results_container">
+                <p>{{result.hotel.name}}</p>
+                <p>{{result.hotel.address.lines.0}}<br>
+                {% if result.hotel.address.stateCode %}
+                    {{result.hotel.address.cityName}}, {{result.hotel.address.stateCode}}, {{result.hotel.address.countryCode}} {{result.hotel.address.postalCode}}
+                {% else %}
+                    {{result.hotel.address.cityName}}, {{result.hotel.address.countryCode}} {{result.hotel.address.postalCode}}</p>
+                {% endif %}
+                <p>{{result.hotel.description.text}}</p>
+                <p>{{result.hotel.rating}}-star rating</p>
+                <p>{{result.offers.0.price.total}} {{result.offers.0.price.currency}} per night</p>
+                
+            
+            </div>
+            {% endfor %}
+        </div>
+    {% endblock %}
+

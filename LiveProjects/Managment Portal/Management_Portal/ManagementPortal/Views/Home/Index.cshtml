@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "Dashboard";
+    ViewBag.HideNavBar = true;
+}
+<div class="container jumbotron">
+    <h1 class="display-4">Welcome to "CompanyName.Inc"</h1>
+    <p class="lead">You have reached our company portal for new and current employees"</p>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-4">
+            <div class="card text-light bg-secondary py-3 px-2">
+                <h5 class="card-title">Looking for our main website?</h5>
+                <a href="#" class="text-white">Take a look</a>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card text-light bg-secondary py-3 px-2">
+                <h5 class="card-title">Already a registered employee?</h5>
+                <a href="@Url.Action("Login","Account")" class="text-white">Log in here</a>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card text-light bg-secondary py-3 px-2">
+                <h5 class="card-title">New employee waiting to register?</h5>
+                <a href="@Url.Action("Register","Account")" class="text-white">Register here</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card" >
+    <div class="card-header" id="news-header">
+        <h3>Company News</h3>
+    </div>
+    <div class="card-body" id="new-body">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col">
+                    <div class="card">
+
+                        <div class="card-header">
+                            <span class="h4">@Html.DisplayFor(modelItem => item.Title)</span>
+                            <span class="pull-right">@Html.DisplayFor(modelItem => item.DateStamp)</span>
+                        </div>
+                        <div class="card-body">
+                            <p>@Html.DisplayFor(modelItem => item.NewsItem)</p>
+                        </div>
+
+                    </div>
+                </div>
+             }
+        </div>
+    </div>
+</div>

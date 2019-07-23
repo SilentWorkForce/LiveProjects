@@ -1,0 +1,89 @@
+<!-- templates/home.html-->
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+{% include "nav.html" %}
+
+<!--Logged in greeting-->
+<div class="container">
+  <div class="row">
+    <div class="col text-center">
+      <h1>Hi {{ user.username }}!</h1>
+      <br><br><br>
+    </div>
+  </div>
+
+  <div class="content col text-center" id="main">
+    <div class="row">
+      <div class="col-lg-3 col-md-3 col-xs-3 thumb">
+        <a href='/messageinbox' style="color:#5b5b5b"><i class="fas fa-comments fa-5x"></i><br>Messages</a>
+      </div>
+      <div class="col-lg-3 col-md-3 col-xs-3 thumb">
+        <a href='/news' style="color:#5b5b5b"><i class="fas fa-bullhorn fa-5x"></i><br>News</a>
+      </div>
+      <div class="col-lg-3 col-md-3 col-xs-3 thumb">
+        <a href='/traffic' style="color:#5b5b5b"><i class="fas fa-road fa-5x"></i><br>Traffic</a>
+      </div>
+      <div class="col-lg-3 col-md-3 col-xs-3 thumb">
+        <a href='/movie' style="color:#5b5b5b"><i class="fas fa-ticket-alt fa-5x"></i><br>Top Movies</a>
+      </div>
+    </div>
+    <br><br><br>
+    <div class="row">
+      <div class="col-lg-3 col-md-3 col-xs-3 thumb">
+        <a href='/podcast' style="color:#5b5b5b"><i class="fas fa-podcast fa-5x"></i><br>Top Podcasts</a>
+      </div>
+      <div class="col-lg-3 col-md-3 col-xs-3 thumb">
+        <a href='/space' style="color:#5b5b5b"><i class="fas fa-space-shuttle fa-5x"></i><br>Space Launches</a>
+      </div>
+      <div class="col-lg-3 col-md-3 col-xs-3 thumb">
+        <a href='/bands' style="color:#5b5b5b"><i class="fas fa-guitar fa-5x"></i><br>Local Shows</a>
+      </div>
+      <div class="col-lg-3 col-md-3 col-xs-3 thumb">
+        <a href='/forsale' style="color:#5b5b5b"><i class="fas fa-shopping-cart fa-5x"></i><br>PDX For Sale</a>
+      </div>
+    </div>
+    <br><br><br>
+    <div class="row">
+      <div class="col-lg-3 col-md-3 col-xs-3 thumb">
+        <a href='/weather' style="color:#5b5b5b"><i class="fas fa-cloud-sun fa-5x"></i><br>Weather</a>
+      </div>  
+      <div class="col-lg-3 col-md-3 col-xs-3 thumb">
+        <a href= '/budget'style="color:#5b5b5b"><i class="fas fa-money-bill fa-5x"></i><br>Budget</a>
+      </div>
+      <div class="col-lg-3 col-md-3 col-xs-3 thumb">
+        <a href= '/habit-tracker' style="color:#5b5b5b"><i class='fas fa-heartbeat fa-5x'></i><br>Habits</a>
+      </div>
+      <div class="col-lg-3 col-md-3 col-xs-3 thumb">
+        <a href= '/toprestaurants' style="color:#5b5b5b"><i class='fas fa-utensils fa-5x'></i><br>Find Restaurants</a>
+      </div>
+    </div>
+    <br><br><br>
+    <div class="row">
+      <div class="col-lg-3 col-md-3 col-xs-3 thumb">
+        <a href='/meals' style="color:#5b5b5b"><i class="fas fa-book fa-5x"></i><br>Recipes</a>
+      </div> 
+    </div>
+  </div>
+
+  {% else %}
+  <!--Logged Out Screen-->
+  <div class="hidden">
+      <div class="hi-icon-wrap hi-icon-effect-8">
+          <h1>Hey Stranger...</h1>
+          <div class="column">
+              <div class="col text-center">
+                  <a class="hi-icon" href="{% url 'login' %}">Login</a>
+                  <a class="hi-icon" href="{% url 'signup' %}">Sign Up</a>
+              </div>
+          </div>
+      </div>
+  </div>
+  {% endif %}
+
+  {% endblock %}

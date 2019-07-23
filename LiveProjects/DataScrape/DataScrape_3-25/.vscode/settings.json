@@ -1,0 +1,10 @@
+{
+  "python.pythonPath": "C:\\Users\\chris\\AppData\\Local\\Programs\\Python\\Python37-32\\python.exe",
+  "python.testing.pyTestArgs": [
+    "DataScrapeProject"
+  ],
+  "python.testing.unittestEnabled": false,
+  "python.testing.nosetestsEnabled": false,
+  "python.testing.pyTestEnabled": false,
+  "python.testing.promptToConfigure": false
+}

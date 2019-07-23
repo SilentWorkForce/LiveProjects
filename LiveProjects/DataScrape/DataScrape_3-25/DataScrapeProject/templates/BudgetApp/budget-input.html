@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+{% block title %} Budget {% endblock %}
+{% block content %}
+  {% if user.is_authenticated %}
+    {% include "nav.html" %}
+    {% block budget_content %}
+      <div class="container">
+        <h4 class="my-3">
+          {% if has_user_data_existing %}
+            Your current budget: 
+              <a href="./{{ user.username }}">{{ user.username }}'s budget</a>
+          {% else %}
+            Please enter your spending data and budget goal below.
+          {% endif %}
+        </h4>
+        <form action="./{{ user.username }}" method="POST">
+          {% csrf_token %}
+          {{ budget_input }}
+          <input type="submit" value="Submit" />
+        </form>
+      </div>
+    {% endblock %}
+  {% else %}
+    <!-- Logged Out Screen (should probably be its own template block like nav) -->
+    <div class="hidden">
+      <h1>Hey Stranger..</h1>
+      <br />
+      <div class="row">
+        <div class="col text-center">
+          <a class="btn default-button" href="{% url 'login' %}">Login</a>
+        </div>
+      </div>
+      <br />
+      <h3 class="text-center">Don't have an account?</h3>
+      <br />
+      <div class="row">
+        <div class="col text-center">
+          <a class="btn default-button" href="{% url 'signup' %}">Sign Up</a>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+{% endblock %}

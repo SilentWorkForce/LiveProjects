@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+{% block title%}{{ recipe.title }}{% endblock %}
+{% block content %}
+{% include 'nav.html' %}
+
+<h2 class="color-user ml-0">{{ recipe.title }}</h2>
+<div class="text-center mb-4">
+    <a class="btn default-button" href="javascript:history.back()">Back to recipe list</a>
+    {% if recipe.youtube %}
+    <a class="btn default-button" data-toggle="modal" data-target="#exampleModal" id="video-link">Watch Video</a>
+    {% endif %}
+</div>
+<div class="row text-center" id="recipe-image-row">
+    <div class="col-sm">
+        <img class="recipe-image" src="{{ recipe.image }}" height="auto" width="30%"> 
+    </div>
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="recipe-modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Video</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="recipe-modal-body">
+                <div class="row text-center">
+                    <iframe width="90%" height="400px" src="{{ recipe.youtube }}"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row text-center recipe-row default-margin-right mb-4">
+    <div class="col-md-4 text-left recipe-page">
+        <h4 class="color-user">Ingredients:</h4>
+    {% for ingredient in recipe.ingredients %}
+        <div class="ingredients">
+            <p>{{ ingredient }}</p>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="col-md-6 text-left recipe-page">
+        <h4 class="color-user">Directions:</h4>
+        <br>
+        {% for direction in recipe.instructions %}
+            <p>{{ direction }}</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

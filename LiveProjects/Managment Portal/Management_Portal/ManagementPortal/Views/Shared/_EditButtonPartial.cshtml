@@ -1,0 +1,17 @@
+﻿@model Guid
+
+<a type="button" class="btn btn-sm btn-primary" href="@Url.Action("Edit", new { id = Model })">
+    <span>
+        <i class="fa fa-pencil"></i> Edit
+    </span>
+</a>
+<a type="button" class="btn btn-sm btn-primary" href="@Url.Action("Delete", new { id = Model })">
+    <span>
+        <i class="fa fa-trash"></i> Delete
+    </span>
+</a>
+<a type="button" class="btn btn-sm btn-primary" href="@Url.Action("Index")">
+    <span>
+        <i class="fa fa-list"></i> Back to List
+    </span>
+</a>

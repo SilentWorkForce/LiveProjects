@@ -1,0 +1,12 @@
+﻿
+@using ManagementPortal.Enums
+@{
+    ViewBag.Title = "WorkType";
+}
+
+<h2>WorkType</h2>
+
+@foreach (WorkType workType in Enum.GetValues(typeof(WorkType)))
+{
+    <p>@workType</p>
+}

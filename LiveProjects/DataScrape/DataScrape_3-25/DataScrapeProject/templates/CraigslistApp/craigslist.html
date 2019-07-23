@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block title %}For Sale{% endblock %}
+
+{% block content %}
+{% include "nav.html" %}
+
+<div class="container col-8">
+
+    <div class="form-group text-danger">
+        <h1>Search Items for Sale in Portland</h1>
+        <br>
+        <div id="craigslist-box">
+            <form method="POST" class="inline-block">
+                {% csrf_token %}
+                    <div class="row">
+                        <div class="col-sm text-right">
+                            <p>Search:</p>
+                        </div>
+                        <div class="col-sm text-left">
+                            {{ form.keyword }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm text-right">
+                            <p>Search Radius:</p>
+                        </div>
+                        <div class="col-sm text-left">
+                            {{ form.radius }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm text-right">
+                            <p>Miles From Zip:</p>
+                        </div>
+                        <div class="col-sm text-left">
+                            {{ form.postal }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm text-right">
+                            <button type="submit" class="btn default-button app-buttons">Search</button>
+                        </div>
+                    </div>
+                </div>
+            </form>  
+        </div>
+    </div>
+
+</div>
+
+{% for source in sourceLists %}
+<div class="container col-8">
+    <a href="{{ source.1 }}"><img src="{{ source.2 }}" />
+        <h4>{{ source.0 }}</h4>
+    </a> <!-- Displays the search results as a link to the item page -->
+</div>
+<br>
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,23 @@
+﻿<h2>Dashboard</h2>
+@using Microsoft.AspNet.Identity
+@using ConstructionNew.Models
+@Styles.Render("~/Content/custom.css")
+@{
+    ViewBag.Title = "ERECTORS, INC.";
+}
+
+<div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+
+    <div class="row mobileDashboardRow">
+        <button type="button" class="btn btn-info btn-md mobileDashboardButton">@Html.ActionLink("My Jobs", "MySchedulePartial", "Schedules", null, new { @class = "dashBoardLink" })</button>
+        <button type="button" class="btn btn-info btn-md mobileDashboardButton">@Html.ActionLink("Company News", "Index", "CompanyNews", null, new { @class = "dashBoardLink" })</button>      
+    </div>
+    <div class="row mobileDashboardRow">      
+        <button type="button" class="btn btn-info btn-md mobileDashboardButton">
+            @Html.ActionLink("Mobile Chat", "MobileChat", "ChatMessages", routeValues: null, htmlAttributes: new { @class = "dashBoardLink" })
+        </button>
+        <button type="button" class="btn btn-info btn-md mobileDashboardButton">
+            @Html.ActionLink("Manage Account", "Index", "Manage", routeValues: null, htmlAttributes: new { @class = "dashBoardLink" })
+        </button>
+    </div>
+</div>

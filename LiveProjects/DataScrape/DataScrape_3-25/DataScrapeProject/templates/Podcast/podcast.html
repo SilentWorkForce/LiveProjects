@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+
+{% block title %}Podcasts{% endblock %}
+
+
+{% block content %}
+{% include 'nav.html' %} <!--Add navigation to Podcast html-->
+
+    <section class="hero is-primary">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    Podcasts
+                </h1>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="column dropdown">
+                <button class="btn default-button dropdown-toggle dropbtn" type="button" id="catSearch" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Search Podcasts By Category
+                </button>
+                <div class="dropdown-menu" style="margin-left: 110px" aria-labelledby="sortButton">
+                    <a class="sort-item dropdown-item" id="top">Top 10</a>
+                    <a class="sort-item dropdown-item" id="Comedy">Comedy</a>
+                    <a class="sort-item dropdown-item" id="Society & Culture">Society &amp Culture</a>
+                    <a class="sort-item dropdown-item" id="Science & Medicine">Science &amp Medicine</a>
+                    <a class="sort-item dropdown-item" id="News & Politics">News &amp Politics</a>
+                    <a class="sort-item dropdown-item" id="sports">Sports</a>
+                    <a class="sort-item dropdown-item" id="Pop Culture, TV & Film">Pop Culture, TV &amp Film</a>
+                    <a class="sort-item dropdown-item" id="Business">Business</a>
+                    <a class="sort-item dropdown-item" id="Education">Education</a>
+                    <a class="sort-item dropdown-item" id="Kids & Family">Kids &amp Family</a>
+                    <a class="sort-item dropdown-item" id="Games & Hobbies">Games &amp Hobbies</a>
+                    <a class="sort-item dropdown-item" id="Storytelling">Storytelling</a>
+                    <a class="sort-item dropdown-item" id="Technology">Technology</a>
+                    <a class="sort-item dropdown-item" id="Music & Commentary">Music Commentary</a>
+                    <a class="sort-item dropdown-item" id="Everything">Everything</a>
+                    <a class="sort-item dropdown-item" id="Lifestyle & Health">Lifestyle &amp Health</a>
+                    <a class="sort-item dropdown-item" id="Religion & Spirituality">Religion &amp Spirituality</a>
+
+                </div>
+                <form method="POST" id="sort-form">
+                    {% csrf_token %}
+                    <input type="hidden" id="sort" name="cat_search" value="">
+                </form>
+            </div>
+            <label>Search Podcasts By Title: </label>
+            <form class="column"  method="POST" action="">
+                    <input type="search" class="input" name="title_search"><br>           
+                    {% csrf_token %}
+                    <button type="submit" class="default-button btn " style="float: right">Search</button>
+            </form>
+        </div>
+    </section>
+    {% comment %} I don't know how to make different headings display here 
+    
+    <h3 class="title" style="margin: 70px 0px 15px 100px;">Top Podcasts from Stitcher</h3>  {% endcomment %}
+    {}
+    <div class="container">
+        <section class="section">
+            <ol>
+                {% for podcast in podcasts %}
+                    
+                    <img src="{{ podcast.images }}"/>
+                    <a href="https://stitcher.com/{{ podcast.details }}">
+                        <li>{{ podcast.title }}{{ podcast.heading }}</li> 
+                        
+                        
+                    </a>
+                {% endfor %}
+            </ol>
+        </section>
+    </div>
+ 
+
+{% endblock %}

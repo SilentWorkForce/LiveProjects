@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}Top Restaurants{% endblock %}
+
+{% block content %}
+{% include "nav.html" %}
+
+<div class="container col-8">
+
+    <div class="form-group text-danger">
+        <h1>Search for top restaurants in your area</h1>
+        <br>
+        <div id="craigslist-box">
+            <form method="POST" class="inline-block">
+                {% csrf_token %}
+                    <div class="row">
+                        <div class="col-sm text-right">
+                            <p>Zip Code:</p>
+                        </div>
+                        <div class="col-sm text-left">
+                            {{ form.postal }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm text-right">
+                            <button type="submit" class="btn default-button app-buttons">Search</button>
+                        </div>
+                    </div>
+                </div>
+            </form>  
+        </div>
+    </div>
+
+</div>
+
+{% for business in businesses %}
+<div class="container col-8">
+    <a href="{{business.url}}"><h2>{{ business.name }}</h2></a>
+    <h2>{{ business.rating }}</h2>
+     <!-- Displays the search results as a link to the item page -->
+</div>
+<br>
+{% endfor %}
+
+{% endblock %}

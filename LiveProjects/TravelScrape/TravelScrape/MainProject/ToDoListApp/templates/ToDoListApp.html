@@ -1,0 +1,118 @@
+{% extends 'ToDo_base.html' %}
+
+{% block add_task %}
+<form class="form-inline my-2 my-lg-0" method="POST">
+{% csrf_token %}
+<input class="form-control mr-sm-2" type="search" placeholder="Add Item" aria-label="Search" name="item">
+<select name="timeframe" class="form-control mr-sm-2" >
+    <option selected="selected" value="select">Select Timeframe</option>
+    <option value="today" name="today">Today</option>
+    <option value="thisweek" name="thisweek">This Week</option>
+    <option value="thismonth" name="thismonth">This Month</option>
+    <option value="sparetime" name="sparetime">Spare Time Tasks</option>
+  </select>
+<button class="btn btn-light btn-outline-secondary my-2 my-sm-0" type="submit">Add</button>
+</form> 
+{% endblock %}
+
+{% block content %}
+<br>
+<h1>ALL TASKS</h1>
+<br>
+    {% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-warning alert-dismissible" role="alert">
+            <button class="close" data-dismiss="alert">
+                <small><sup>x</sup></small>
+            </button>
+            {{ message }}
+        </div>
+    {% endfor %}
+
+{% endif %}
+
+<h3>Today</h3>
+{% if today_items %}
+    <table class="table table-bordered table-white">
+    {% for things in today_items %}
+        {% if things.completed %}
+            <tr class="table-secondary">
+                <td class="striker"><h4>{{ things.item }}</h4></td>
+                <td><center><a href="{% url 'uncross_today' things.id %}"><h4>Uncross</h4></a></center></td>
+                <td><center><a href="{% url 'delete_today' things.id %}"><h4>Delete</h4></a></center></td>
+            </tr>
+        {% else %}  
+            <tr>
+                <td><h4>{{ things.item }}</h4></td>
+                <td><center><a href="{% url 'cross_off_today' things.id %}"><h4>Cross Off</h4></a></center></td>
+                <td><center><a href="{% url 'delete_today' things.id %}"><h4>Delete</h4></a></center></td>
+            </tr>
+        {% endif %}
+    {% endfor %}
+    </table>
+{% endif %}
+
+<h3>This Week</h3>
+{% if thisweek_items %}
+    <table class="table table-bordered table-white">
+    {% for things in thisweek_items %}
+        {% if things.completed %}
+            <tr class="table-secondary">
+                <td class="striker"><h4>{{ things.item }}</h4></td>
+                <td><center><a href="{% url 'uncross_thisweek' things.id %}"><h4>Uncross</h4></a></center></td>
+                <td><center><a href="{% url 'delete_thisweek' things.id %}"><h4>Delete</h4></a></center></td>
+            </tr>
+        {% else %}  
+            <tr>
+                <td><h4>{{ things.item }}</h4></td>
+                <td><center><a href="{% url 'cross_off_thisweek' things.id %}"><h4>Cross Off</h4></a></center></td>
+                <td><center><a href="{% url 'delete_thisweek' things.id %}"><h4>Delete</h4></a></center></td>
+            </tr>
+        {% endif %}
+    {% endfor %}
+    </table>
+{% endif %}
+
+<h3>This Month</h3>
+{% if thismonth_items %}
+    <table class="table table-bordered table-white">
+    {% for things in thismonth_items %}
+        {% if things.completed %}
+            <tr class="table-secondary">
+                <td class="striker"><h4>{{ things.item }}</h4></td>
+                <td><center><a href="{% url 'uncross_thismonth' things.id %}"><h4>Uncross</h4></a></center></td>
+                <td><center><a href="{% url 'delete_thismonth' things.id %}"><h4>Delete</h4></a></center></td>
+            </tr>
+        {% else %}  
+            <tr>
+                <td><h4>{{ things.item }}</h4></td>
+                <td><center><a href="{% url 'cross_off_thismonth' things.id %}"><h4>Cross Off</h4></a></center></td>
+                <td><center><a href="{% url 'delete_thismonth' things.id %}"><h4>Delete</h4></a></center></td>
+            </tr>
+        {% endif %}
+    {% endfor %}
+    </table>
+{% endif %}
+
+<h3>Spare Time Tasks</h3>
+{% if sparetime_items %}
+    <table class="table table-bordered table-white">
+    {% for things in sparetime_items %}
+        {% if things.completed %}
+            <tr class="table-secondary">
+                <td class="striker"><h4>{{ things.item }}</h4></td>
+                <td><center><a href="{% url 'uncross_spare_time' things.id %}"><h4>Uncross</h4></a></center></td>
+                <td><center><a href="{% url 'delete_spare_time' things.id %}"><h4>Delete</h4></a></center></td>
+            </tr>
+        {% else %}  
+            <tr>
+                <td><h4>{{ things.item }}</h4></td>
+                <td><center><a href="{% url 'cross_off_spare_time' things.id %}"><h4>Cross Off</h4></a></center></td>
+                <td><center><a href="{% url 'delete_spare_time' things.id %}"><h4>Delete</h4></a></center></td>
+            </tr>
+        {% endif %}
+    {% endfor %}
+    </table>
+{% endif %}
+
+{% endblock %}

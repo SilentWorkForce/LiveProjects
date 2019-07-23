@@ -1,0 +1,37 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <!--I can't figure out why this nav bar won't work with my app-->
+{% include "nav.html" %}
+
+<!--This page is the user view of the Current Lists of Budgets available to enter and manipulate-->
+<div class="container-fluid budgetListContainer">
+
+    <h1 class= "budgetList_h1">Your Budgets List:</h1>
+    <hr>
+
+    <div class="row listRow">
+        {% for project in project_list %}
+        <div class="col s12 13">
+            <div class="card-panel budgetListPanel">
+                <h5 class= "budgetList_h5">{{ project.name }}</h5>
+                <a href="{% url 'detail' project.slug %}" class="btn project_ListBtn">Start Your Planning</a>
+            </div>
+        </div>
+        {% empty %}
+        <!-- This was for a dummy page during developement.  It currently has no function -->
+        <div class="noproject-wrapper center">
+            <h3 class="grey-text">Sorry, you don't have any projects, yet.</h3>
+            <a href="" class="btn-large grey">
+                <i class="material-icons white-text left">add_circle</i>
+                <span class="bold">Add Projects</span>  
+            </a>
+        </div>
+        {% endfor %}
+    </div>    
+    
+
+</div>
+
+{% endblock content %}

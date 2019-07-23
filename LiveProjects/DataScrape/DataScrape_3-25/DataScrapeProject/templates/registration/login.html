@@ -1,0 +1,25 @@
+<!-- templates/registration/login.html  Created for login page MJ-->
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+{% block title %}Login{% endblock %}
+{% block content%}
+<div class="center-min text-center">
+    <h1>Welcome back...</h1>
+    <form method="post">
+        {% csrf_token %}
+        <p>
+            <i class="fas fa-user fa-2x" style="padding-right: 5px;"></i> 
+            <input type="text" name="username" autofocus required id="id_username" placeholder="Username" style="padding-top: 10px;">
+        </p>
+        <p>
+            <i class="fas fa-lock fa-2x" style="padding-right: 5px;"></i>
+            <input type="password" name="password" required id="id_password" placeholder="Password" style="padding-top: 10px;">
+        </p>
+        <div>
+            <button class="btn default-button" type="submit" style="margin-right: 10px;">Login</button>
+            <a class="btn default-button" href="{% url 'signup' %}" type="signup">Sign Up</a>
+        </div>
+    </form>
+    <a href="{% url 'password_reset' %}" type="signup">Forgot Password</a>
+</div>
+{% endblock %}

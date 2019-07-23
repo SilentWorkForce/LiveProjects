@@ -1,0 +1,48 @@
+﻿@using ConstructionNew.Models
+@model IEnumerable<ConstructionNew.Models.ChatMessage>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Manage Chat</h2>
+
+<div>
+    <table class="table">
+        <tr>
+            <th>Timestamp</th>
+            
+            <th>Sender</th>
+
+            <th>Messages</th>
+
+            <th>Delete</th>
+
+            <th>Edit</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sender)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Message)<br />
+                </td>
+                <td>
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ChatMessageId })
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ChatMessageId})
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+<div>
+    @Html.ActionLink("Back to Dashboard", "Index", "Dashboard")
+</div>
