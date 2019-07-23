@@ -1,0 +1,71 @@
+﻿/*Custom css to override specific bootstrap 4 themes*/
+:root {
+    --dark-brown: #534E54;
+    --light-brown: #A79885;
+    --light-grey: #F2F2F2;
+    --dark-blue: #4E6172;
+    --dark-green: #444C13;
+    --main-yellow: #F2C03A;
+}
+
+body {
+    color: var(--dark-brown);
+}
+
+.panel-default > .panel-heading {
+    color: var(--light-grey);
+    background-color: var(--dark-brown);
+}
+
+.panel-info > .panel-heading {
+    color: var(--light-grey);
+    background-color: var(--light-brown);
+}
+
+.bg-info {
+    background-color: var(--dark-brown);
+}
+
+.thumbnail .caption {
+    color: var(--light-grey);
+}
+
+.panel-body a {
+    color: var(--dark-brown);
+}
+
+i {
+    color: var(--light-grey);
+}
+
+a {
+    color: var(--dark-brown);
+}
+
+a.createNew {
+    color: var(--light-grey);
+}
+
+a.jobDetails {
+    color: var(--light-grey);
+}
+
+a.landingPageLink {
+    color: var(--light-grey);
+}
+
+a.dashBoardLink {
+    color: var(--light-grey);
+}
+
+.btn-primary {
+    background-color: var(--dark-brown);
+    border-color: var(--dark-brown);
+    color: var(--light-grey);
+}
+
+.btn-info {
+    background-color: var(--dark-brown);
+    border-color: var(--dark-brown);
+    color: var(--light-grey);
+}
