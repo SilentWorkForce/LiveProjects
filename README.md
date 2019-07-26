@@ -145,18 +145,18 @@ I had to make buttons with functionality on a new project for a management porta
 
 ### Front End C sharp (Remove an exsiting nav bar link & Make Password Text field show as invisible or astriks)
 
-                     public string PasswordHash { get; set; }
-                     [Display(Name = "First Name")]
+           public string PasswordHash { get; set; }
+           [Display(Name = "First Name")]
 
-                    <!--Admin-->
-                    <li class="has-sub">
-                        <a class="nav-title" href="#"><i class="fa fa-clipboard icon-padding" onclick="openNav()"></i>Admin</a>
-                        <ul>
-                            <li>@Html.ActionLink("Some Link", "Index", new { controller = "Home" }, new { @class = "dropdown-item" })</li>
-                            <li>@Html.ActionLink("Another Link", "Index", new { controller = "Home" }, new { @class = "dropdown-item" })</li>
+          <!--Admin-->
+          <li class="has-sub">
+              <a class="nav-title" href="#"><i class="fa fa-clipboard icon-padding" onclick="openNav()"></i>Admin</a>
+              <ul>
+                  <li>@Html.ActionLink("Some Link", "Index", new { controller = "Home" }, new { @class = "dropdown-item" })</li>
+                  <li>@Html.ActionLink("Another Link", "Index", new { controller = "Home" }, new { @class = "dropdown-item" })</li>
 
-                        </ul>
-                    </li>
+              </ul>
+          </li>
 
 
 *Jump to: [Back End Stories](#back-end-stories), [Other Skills](#other-skills-learned), [Page Top](#live-project)*
