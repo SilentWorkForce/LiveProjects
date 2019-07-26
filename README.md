@@ -153,8 +153,8 @@ I had to make buttons with functionality on a new project for a management porta
 
 ### Front End C sharp (Remove an exsiting nav bar link & Make Password Text field show as invisible or astriks)
 
-       public string PasswordHash { get; set; }
-        [Display(Name = "First Name")]
+ public string PasswordHash { get; set; }
+ [Display(Name = "First Name")]
 
                     <!--Admin-->
                     <li class="has-sub">
