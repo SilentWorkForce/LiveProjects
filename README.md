@@ -55,7 +55,7 @@ And finally show the names on the drop down with the ability to select and view 
                 var jobs = db.Jobs.Where(j => j.Schedules.Count > 0).ToList();
                 return View(jobs);
             }                                 
-      >  }
+        }
 
  
  ### Login Page Python Django (Create User page)
