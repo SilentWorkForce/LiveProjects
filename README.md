@@ -24,7 +24,7 @@ This was easily the most challenging within C sharp I had to create a drop down 
 Then that drop down would need to pull from the exsiting SQL database of users and admins,
 And finally show the names on the drop down with the ability to select and view details.
 
-   [HttpPost]
+  > [HttpPost]
         public ViewResult Index(string SearchWeek, string Person)
         {   // Filter jobs results by week  
             if (SearchWeek != "")
@@ -55,7 +55,7 @@ And finally show the names on the drop down with the ability to select and view 
                 var jobs = db.Jobs.Where(j => j.Schedules.Count > 0).ToList();
                 return View(jobs);
             }                                 
-        }
+      >  }
 
  
  ### Login Page Python Django (Create User page)
