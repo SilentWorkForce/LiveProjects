@@ -66,88 +66,87 @@ I was tasked with creating a front login page and user creation form, which incl
 * Registration/Signup
 * Urls and Views
 * Templates
-
 Below is just some of the code I used for the login/user creation, I have all the code on github.
 
-urlpatterns = [
-    path('', views.SignUp),
-    path('login/', views.login),
-]
 
-class SignUp(generic.CreateView):
-    form_class = UserCreationForm
-    success_url = reverse_lazy('login')
-    template_name = 'signup.html'
-    
+          class SignUp(generic.CreateView):
+              form_class = UserCreationForm
+              success_url = reverse_lazy('login')
+              template_name = 'signup.html'
 
-def SignUp(request):
-    if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get('username')
-            raw_password = form.cleaned_data.get('password1')
-            user = authenticate(username=username, password=raw_password)
-            login(request, user)
-            return redirect('home')
-    else:
-        form = UserCreationForm()
-    return render(request, 'signup.html', {'form': form})
+
+          def SignUp(request):
+              if request.method == 'POST':
+                  form = UserCreationForm(request.POST)
+                  if form.is_valid():
+                      form.save()
+                      username = form.cleaned_data.get('username')
+                      raw_password = form.cleaned_data.get('password1')
+                      user = authenticate(username=username, password=raw_password)
+                      login(request, user)
+                      return redirect('home')
+              else:
+                  form = UserCreationForm()
+              return render(request, 'signup.html', {'form': form})
+
+
+
+
 
 ### Front End C sharp (Viewbuttons with Submit, Back to list, Delete, Details, Edit)
 I had to make buttons with functionality on a new project for a management portal website for admins and team leads.
 
-<p>
-<a type="button" class="btn btn-sm btn-primary" href="@Url.Action("Create")">
-<i class="fa fa-plus-square"></i> Create New
-</a>   
-</p>
-<table class="table table-striped table-bg table-hover">
-<tr>
-<th scope="col">
-@Html.DisplayNameFor(model => model.StartDate)
-</th>
-<th scope="col">
-@Html.DisplayNameFor(model => model.EndDate)
-</th>
-<th scope="col"></th>
-</tr>
-@foreach (var item in Model) {
-<tr scope="row">
-<td>
-@Html.DisplayFor(modelItem => item.StartDate)
-</td>
-<td>
-@Html.DisplayFor(modelItem => item.EndDate)
-</td>
-<td class="text-right">
-<a type="button" class="btn btn-sm btn-primary" href="@Url.Action("Edit", new { id = item.ScheduleId })">
-<span>
-<i class="fa fa-pencil"></i> Edit
-</span>
-</a>
-<a type="button" class="btn btn-sm btn-primary" href="@Url.Action("Details", new { id = item.ScheduleId })">
-<span>
-<i class="fa fa-list"></i> Details
-</span>
-</a>
-<a type="button" class="btn btn-sm btn-primary" href="@Url.Action("Delete", new { id = item.ScheduleId })">
-<span>
-<i class="fa fa-trash"></i> Delete
-</span>
-</a>
-</td>
-</tr>
-}
+          <p>
+          <a type="button" class="btn btn-sm btn-primary" href="@Url.Action("Create")">
+          <i class="fa fa-plus-square"></i> Create New
+          </a>   
+          </p>
+          <table class="table table-striped table-bg table-hover">
+          <tr>
+          <th scope="col">
+          @Html.DisplayNameFor(model => model.StartDate)
+          </th>
+          <th scope="col">
+          @Html.DisplayNameFor(model => model.EndDate)
+          </th>
+          <th scope="col"></th>
+          </tr>
+          @foreach (var item in Model) {
+          <tr scope="row">
+          <td>
+          @Html.DisplayFor(modelItem => item.StartDate)
+          </td>
+          <td>
+          @Html.DisplayFor(modelItem => item.EndDate)
+          </td>
+          <td class="text-right">
+          <a type="button" class="btn btn-sm btn-primary" href="@Url.Action("Edit", new { id = item.ScheduleId })">
+          <span>
+          <i class="fa fa-pencil"></i> Edit
+          </span>
+          </a>
+          <a type="button" class="btn btn-sm btn-primary" href="@Url.Action("Details", new { id = item.ScheduleId })">
+          <span>
+          <i class="fa fa-list"></i> Details
+          </span>
+          </a>
+          <a type="button" class="btn btn-sm btn-primary" href="@Url.Action("Delete", new { id = item.ScheduleId })">
+          <span>
+          <i class="fa fa-trash"></i> Delete
+          </span>
+          </a>
+          </td>
+          </tr>
+          }
 
-</table>
+          </table>
 
 
 
 ### Front End C sharp (Remove an exsiting nav bar link & Make Password Text field show as invisible or astriks)
 
- public string PasswordHash { get; set; }
- [Display(Name = "First Name")]
+                     public string PasswordHash { get; set; }
+                     [Display(Name = "First Name")]
 
                     <!--Admin-->
                     <li class="has-sub">
@@ -158,6 +157,7 @@ I had to make buttons with functionality on a new project for a management porta
 
                         </ul>
                     </li>
+
 
 *Jump to: [Back End Stories](#back-end-stories), [Other Skills](#other-skills-learned), [Page Top](#live-project)*
 
