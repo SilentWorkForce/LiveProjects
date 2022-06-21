@@ -3,7 +3,7 @@ certifi==2018.11.29
 chardet==3.0.4
 Django==2.1.5
 idna==2.8
-numpy==1.16.2
+numpy==1.22.0
 pytz==2018.9
 requests==2.21.0
 selenium==3.141.0
